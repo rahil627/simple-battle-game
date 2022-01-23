@@ -1,4 +1,0 @@
--D silent
-gen.hxml
---next
---macro Generator.compile()
