@@ -307,16 +307,32 @@ Main.prototype = $extend(hxd_App.prototype,{
 	init: function() {
 		var tf = new h2d_Text(hxd_res_DefaultFont.get(),this.s2d);
 		tf.set_text("Hello World !");
-		var g = new h2d_Graphics(this.s2d);
-		g.beginFill(16711680);
-		g.drawRect(10,10,100,100);
-		g.beginFill(65280,0.5);
-		g.lineStyle(1,16711935);
-		g.drawCircle(100,100,30);
-		g.endFill();
+		Main_g = new h2d_Graphics(this.s2d);
+		this.paintRectangle(10,10,100,1000);
+		Main_g.lineStyle(10,16711935);
+		var _this = Main_g;
+		_this.addVertex(0,100,_this.curR,_this.curG,_this.curB,_this.curA,0 * _this.ma + 100 * _this.mc + _this.mx,0 * _this.mb + 100 * _this.md + _this.my);
+		var _this = Main_g;
+		_this.addVertex(100,100,_this.curR,_this.curG,_this.curB,_this.curA,100 * _this.ma + 100 * _this.mc + _this.mx,100 * _this.mb + 100 * _this.md + _this.my);
+		var _this = Main_g;
+		_this.addVertex(200,300,_this.curR,_this.curG,_this.curB,_this.curA,200 * _this.ma + 300 * _this.mc + _this.mx,200 * _this.mb + 300 * _this.md + _this.my);
+		var _this = Main_g;
+		_this.addVertex(400,200,_this.curR,_this.curG,_this.curB,_this.curA,400 * _this.ma + 200 * _this.mc + _this.mx,400 * _this.mb + 200 * _this.md + _this.my);
+	}
+	,paintRectangle: function(x,y,width,height,color,alpha) {
+		if(alpha == null) {
+			alpha = 1.0;
+		}
+		if(color == null) {
+			color = 16777215;
+		}
+		Main_g.beginFill(color,alpha);
+		Main_g.drawRect(x,y,width,height);
+		Main_g.endFill();
 	}
 	,__class__: Main
 });
+var Main_g = null;
 Math.__name__ = "Math";
 var Reflect = function() { };
 $hxClasses["Reflect"] = Reflect;
@@ -53335,7 +53351,7 @@ var hxd_earcut_Earcut = function() {
 $hxClasses["hxd.earcut.Earcut"] = hxd_earcut_Earcut;
 hxd_earcut_Earcut.__name__ = "hxd.earcut.Earcut";
 hxd_earcut_Earcut.prototype = {
-	triangulate_h2d_GPoint: function(points,holes) {
+	triangulate_h2d_col_Point: function(points,holes) {
 		var hasHoles = holes != null && holes.length > 0;
 		var outerLen = hasHoles ? holes[0] : points.length;
 		if(outerLen < 3) {
@@ -53347,7 +53363,7 @@ hxd_earcut_Earcut.prototype = {
 		}
 		return this.triangulateNode(root,points.length > 80);
 	}
-	,triangulate_h2d_col_Point: function(points,holes) {
+	,triangulate_h2d_GPoint: function(points,holes) {
 		var hasHoles = holes != null && holes.length > 0;
 		var outerLen = hasHoles ? holes[0] : points.length;
 		if(outerLen < 3) {
