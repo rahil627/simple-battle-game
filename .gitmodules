@@ -1,3 +1,7 @@
 [submodule "heapspunk"]
 	path = heapspunk
 	url = https://github.com/rahil627/heapspunk.git
+[submodule "rathewolf-haxe-libraries"]
+	path = rathewolf-haxe-libraries
+	url = https://github.com/rahil627/rathewolf-haxe-libraries.git
+
