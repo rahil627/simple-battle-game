@@ -6,66 +6,52 @@ var player:h2d.Object;
 class Main extends hxd.App {
 	    
 	override function init() {
-		     var tf = new h2d.Text(hxd.res.DefaultFont.get(), s2d);
-		     tf.text = "Hello World !";
-		
-			// uhhh not so useful...
-			canvas.paintRectangle(10, 10, 100, 1000);
-			
-
+	
 			// add playable character
 			player = new Player(s2d);
-			// might have to extend Object to add things to it
-			// such as a bitmap
-			// otherwise, it doesn't seem like there's much in it...
-			// Objects have an auto-magic getBounds function tho,
-			// to check collisions against
-			
-			
-			
-			// get angle from player's last input direction
-			
-			
-
-			//check collision between player and laser			//see interactive2d sample, looks simple!! :)
-	
-			// make a laser collider
-			//the "Bounds" 2d box collider looks fine!
-			var lb = new h2d.col.Bounds();
-			lb.xMin = p.x;
-			lb.yMin = p.y;
-			lb.xMax = p2.x;
-			lb.yMax = p2.y;
-			//lb.rotate //set to player's last input direction
-			
-
 			
       } // init
 	
 	
 	
 	override function update(dt:Float) {
-			// move players based on input			
+	
+		player.update();
+		
+		//check collision between player and laser
+		// Objects have an auto-magic getBounds function tho,
+		//see interactive2d sample, looks simple!! :)
 						
-				
-				// as long as the laser is out...		
-								
-				// make a laser collider
-				//the "Bounds" 2d box collider looks fine!
-				var lc = new h2d.col.Bounds();
-				lc.xMin = p.x;
-				lc.yMin = p.y;
-				lc.xMax = p2.x;
-				lc.yMax = p2.y;
-				//lc.rotate //set to player's last input direction
-			
 
-				// check collision			
-				if (player.getBounds.intersects(lc)) {
-					//do something
-				}
-			}
-			
+		// check collisions
+		//if (player.getBounds.intersects(laserColliders)) {
+			//do something
+		//}
+
+		
+		
+		// nahhh son, this ain't gonna work
+		// there's no way to clear each individual laser from the canvas
+		// (even if you try to draw over it / erase it,
+		// you could be erasing an overlapping laser)
+		// need a seperate bitmap for each laser
+		// ...and that might be gpu-expensive
+		// so, will need to use SpriteBatch or TileGroup?
+		
+		// laser needs to be it's own object
+		// objects have alpha, i think, which can be used
+		// once it's time is up, can remove it
+		
+		// you can, however, reserve some memory for a few... 100?
+		// that way, there's no need to allocate and de-allocate memory
+		// for every laser
+		
+		// just use Tile.fromColor(0xFFFFFF) to create the tile
+		// then pass it into the bitmap constructor
+		
+		// the Graphics class might just be a single bitmap...
+		
+					
 			
 	} //update
 	
@@ -78,21 +64,6 @@ class Main extends hxd.App {
 	 }
 
 	
-	
-	
-	
-	/*
-		public function updatelaser(power:Float){
-		primative.clear();
-		primative.x = x;
-		primative.y = y;
-		
-		primative.moveTo(0, 0);
-		primative.lineStyle(2, Col.RED, 0.75 * power);
-		primative.lineTo(endx - primative.x + 5, endy - primative.y + 5 - 5);
-		primative.lineTo(5, 5);
-		primative.visible = true;
-	*/
 	
 		
 		

@@ -1,3 +1,5 @@
+import.hxd.Math
+
 class Player extends h2d.Object {
 	
 	// simple but not efficient 2d graphics object
@@ -6,8 +8,8 @@ class Player extends h2d.Object {
 	
 	// Object has new instead of class name / standard constructor?
 	// call me in main.init()
-	public function new(scene:h2d.Scene, color:Int) {
-    		this.super(scene:h2d.Scene);
+	public function new(?parent Object, color:Int) {
+    		this.super(parent);
 		bitmap = new Bitmap(Tile.fromColor(color));
 	}
 	
@@ -16,39 +18,50 @@ class Player extends h2d.Object {
 	
 	// call me in the main.update()
 	public function update() {
-		this.updateMove();
+		this.updateInputs();
 		
 	}
 	
-	private function updateMove() {
+	private function updateInputs() {
 		// it makes sense to check for input here
 		// because if there is no player, there is no need to check for it
-		if (hxd.Key.isDown(Key.LEFT)) {
-			this.x--;
-		}
+		
+		// update moves
+
 		if (hxd.Key.isDown(Key.RIGHT)) {
 			this.x++;
-		}
-		if (hxd.Key.isDown(Key.UP)) {
-			this.y++;
+			this.rotation = 0; // or 2 pi?
+			// i'm not sure how the coordinate system works...
+			// should be easy to get angle from gamepad sticks tho
 		}
 		if (hxd.Key.isDown(Key.DOWN)) {
 			this.y--;
+			this.rotation = Math.PI / 2
+		}
+		if (hxd.Key.isDown(Key.LEFT)) {
+			this.x--;
+			this.rotation = -Math.PI;
+		}
+		if (hxd.Key.isDown(Key.UP)) {
+			this.y++;
+			this.rotation = Math.PI * 1.5;
 		}
 		
-	private function addLaser() {
-		if (hxd.Key.isDown(Key.L)) {
-		// L is for Laser!
-				
-		// calculate the end xy coordinates based on that angle
-		//player.getRotation??
-				
-		//temp vars
-		var p2:hxd.Math.Point = new Point(250, 500);
-		
-		Global.canvas.paintLaser(player.x, player.y, p.x, p2.y);
+		// update attacks
+		if (hxd.Key.isPressed(Key.L)) {
+			// L is for Laser!
+			this.addLaser();
+		}
 	}
-
+		
+	private function addLaser() {	
+		// add laser to the scene, not the player!
+		new Laser(s2d, this.x, this.y, this.rotation);
+		
+		// later on can switch to holding the button down
+		// makes it latch on to the player
+		// until the player lets go of the button
+		//this.lasers.addChild(l);
 	}
 	
 	
