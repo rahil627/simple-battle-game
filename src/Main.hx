@@ -1,7 +1,6 @@
 // no imports, just remember where they are in the library
-// or just import h2d?
+// can import h2d, hxd though... it's just a LOT of stuff
 
-var g:h2d.Graphics; //cannot use dynamic vars here..?
 var player:h2d.Object;
 
 class Main extends hxd.App {
@@ -10,19 +9,16 @@ class Main extends hxd.App {
 		     var tf = new h2d.Text(hxd.res.DefaultFont.get(), s2d);
 		     tf.text = "Hello World !";
 		
-			// drawing helper class
-			g = new h2d.Graphics(s2d); // s2d is the "default" scene in the App class
-			
 			// uhhh not so useful...
-			paintRectangle(10, 10, 100, 1000);
+			canvas.paintRectangle(10, 10, 100, 1000);
 			
-			
+
 			// add playable character
-			player = new h2d.Object(s2d);
-			// might have to extend this to add things to it
+			player = new Player(s2d);
+			// might have to extend Object to add things to it
 			// such as a bitmap
 			// otherwise, it doesn't seem like there's much in it...
-			// Objects have an auto-magic getBounds function
+			// Objects have an auto-magic getBounds function tho,
 			// to check collisions against
 			
 			
@@ -49,31 +45,8 @@ class Main extends hxd.App {
 	
 	
 	override function update(dt:Float) {
-			// move player based on input
-			if (hxd.Key.isDown(Key.LEFT)) {
-				player.x--;
-			}
-			if (hxd.Key.isDown(Key.RIGHT)) {
-				player.x++;
-			}
-			if (hxd.Key.isDown(Key.UP)) {
-				player.y++;
-			}
-			if (hxd.Key.isDown(Key.DOWN)) {
-				player.y--;
-			}
-			
-			
-			if (hxd.Key.isDown(Key.L)) {
-				// L is for laser!
-				
-				// calculate the end xy coordinates based on that angle
-				//player.getRotation??
-				
-				//temp vars
-				var p2:hxd.Math.Point = new Point(250, 500);
-			
-				paintLaser(player.x, player.y, p.x, p2.y);
+			// move players based on input			
+						
 				
 				// as long as the laser is out...		
 								
@@ -107,20 +80,21 @@ class Main extends hxd.App {
 	
 	
 	
-	public function paintLaser(x:Float, y:Float, x2:Float, y2:Float) {
-			//lineStyle( size : Float = 0, color = 0, alpha = 1. ) {
-			g.lineStyle(50, 0xFF00FF);
-			g.moveTo(x, y);
-			g.lineTo(x2, y2);
-	    		g.endFill(); 
-	}
+	
+	/*
+		public function updatelaser(power:Float){
+		primative.clear();
+		primative.x = x;
+		primative.y = y;
 		
-	//useless?
-	public function paintRectangle(x:Float, y:Float, width:Float, height:Float, color:Int = 0xFFFFFF, alpha:Float = 1.0) {
-   		//g.clear();
-    		g.beginFill(color, alpha);
-		g.drawRect(x, y, width, height);
-    		g.endFill();
-	}
-
+		primative.moveTo(0, 0);
+		primative.lineStyle(2, Col.RED, 0.75 * power);
+		primative.lineTo(endx - primative.x + 5, endy - primative.y + 5 - 5);
+		primative.lineTo(5, 5);
+		primative.visible = true;
+	*/
+	
+		
+		
+		
 } //class main
