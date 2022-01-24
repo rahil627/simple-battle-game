@@ -5,7 +5,7 @@ import hxd.Timer;
 
 class Laser extends Object {
 
-	var g:Graphics;
+	var g:Graphics; // todo: or pass this in from it's parent player?
 	var color:Int;
 
 	public override function new(?parent:Object, x:Float, y:Float, rotation:Float, color:Int = 0xFFFFFF) {
@@ -15,6 +15,7 @@ class Laser extends Object {
 		this.rotation = rotation; // needed to calculate end-point
 		this.color = color;
 		//bitmap = new Bitmap(Tile.fromColor(color));
+		g = new Graphics(parent);
 	}
 	
 	// call me in main
@@ -25,6 +26,8 @@ class Laser extends Object {
 	// override for custom drawing stuff
 	// is this automatically called?
 	public override function draw(ctx : h2d.RenderContext) {
+		trace("draw laser");
+	
 		// calculate end-point
 		var angle = this.rotation;
 		

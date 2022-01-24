@@ -13,8 +13,8 @@ class Player extends Object {
 	// Object has new instead of class name / standard constructor?
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
-    		super(parent);
-		bitmap = new Bitmap(Tile.fromColor(color));
+    		super(parent); // this.super() didn't work...
+		bitmap = new Bitmap(Tile.fromColor(color), this);
 	}
 	
 	// no init, update, or anything; that's up to you!
@@ -31,7 +31,6 @@ class Player extends Object {
 		// because if there is no player, there is no need to check for it
 		
 		// update moves
-
 		if (hxd.Key.isDown(Key.RIGHT)) {
 			this.x++;
 			this.rotation = 0;
@@ -61,6 +60,7 @@ class Player extends Object {
 	private function addLaser() {	
 		// add laser to the scene, not the player!
 		new Laser(G.scene, this.x, this.y, this.rotation);
+		//or G.scene.addChild())?
 		
 		// later on can switch to holding the button down
 		// makes it latch on to the player

@@ -19,7 +19,7 @@ class Main extends hxd.App {
 	// does this dt differ from Timer.dt?
 	override function update(dt:Float) {
 	
-		// set global vars
+		// update global vars
 		G.dt = dt;
 	
 		player.update();

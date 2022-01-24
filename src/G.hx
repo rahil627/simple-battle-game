@@ -2,7 +2,8 @@
 
 class G {
 
-	public static var scene: h2d.Scene;
+	// hopefully just a reference..?
+	public static var scene: h2d.Scene;  // = App.s2d
 
 	public static var dt(get, default) : Float;
 	static function get_dt() {
