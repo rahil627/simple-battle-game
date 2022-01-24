@@ -60,7 +60,7 @@ class Player extends Object {
 		
 	private function addLaser() {	
 		// add laser to the scene, not the player!
-		new Laser(s2d, this.x, this.y, this.rotation);
+		new Laser(G.scene, this.x, this.y, this.rotation);
 		
 		// later on can switch to holding the button down
 		// makes it latch on to the player

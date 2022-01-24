@@ -28,7 +28,7 @@ class Laser extends Object {
 		// calculate end-point
 		var angle = this.rotation;
 		
-		var d = s2d.width + s2d.height; // todo: lol
+		var d = G.scene.width + G.scene.height; // todo: lol
 		var x2 = this.x + d * Math.cos(angle);
 		var y2 = this.y + d * Math.sin(angle);
 		

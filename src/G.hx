@@ -1,14 +1,11 @@
 // just a place to store commonly-used global objects 'n vars
 
-public class G {
+class G {
 
-	public var scene(get, default):h2d:Scene;
-	function get_scene() {
-    		return App.s2d;
-  	}
+	public static var scene: h2d.Scene;
 
-	public var dt(get, default):Float;
-	function get_scene() {
+	public static var dt(get, default) : Float;
+	static function get_dt() {
     		return hxd.Timer.dt;
   	}
 	
