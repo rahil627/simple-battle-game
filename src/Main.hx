@@ -1,19 +1,24 @@
-// no imports, just remember where they are in the library
-// can import h2d, hxd though... it's just a LOT of stuff
+import h2d.Object;
 
-var player:h2d.Object;
+var player:Object;
 
 class Main extends hxd.App {
 	    
 	override function init() {
-	
+			//super();
 			// add playable character
-			player = new Player(s2d);
+			player = new Player(this.s2d, 0x0000FF);
+			
+			
+			// set global vars
+			G.scene = this.s2d;
+			G.dt = hxd.Timer.dt;
+			
 			
       } // init
 	
 	
-	
+	// does this dt differ from Timer.dt?
 	override function update(dt:Float) {
 	
 		player.update();

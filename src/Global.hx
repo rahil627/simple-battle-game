@@ -1,6 +1,18 @@
-// just a place to store global objects 'n vars
+// just a place to store commonly-used global objects 'n vars
 
-public static class Global {
+public class G {
+
+	public var scene(get, default):h2d:Scene;
+	function get_scene() {
+    		return App.s2d;
+  	}
+
+	public var dt(get, default):Float;
+	function get_scene() {
+    		return hxd.Timer.dt;
+  	}
+	
+	
 	// could have multiple canvases... so not a singleton
-	public canvas:Canvas;
+	// public var canvas:Canvas;
 }

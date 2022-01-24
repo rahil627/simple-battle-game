@@ -1,6 +1,10 @@
-import.hxd.Math
+import hxd.Math;
+import h2d.Object;
+import h2d.Bitmap;
+import h2d.Tile;
+import hxd.Key;
 
-class Player extends h2d.Object {
+class Player extends Object {
 	
 	// simple but not efficient 2d graphics object
 	// should use SpriteBatch or TileGroup
@@ -8,8 +12,8 @@ class Player extends h2d.Object {
 	
 	// Object has new instead of class name / standard constructor?
 	// call me in main.init()
-	public function new(?parent Object, color:Int) {
-    		this.super(parent);
+	public override function new(?parent:Object, color:Int) {
+    		super(parent);
 		bitmap = new Bitmap(Tile.fromColor(color));
 	}
 	
@@ -30,13 +34,13 @@ class Player extends h2d.Object {
 
 		if (hxd.Key.isDown(Key.RIGHT)) {
 			this.x++;
-			this.rotation = 0; // or 2 pi?
+			this.rotation = 0;
 			// i'm not sure how the coordinate system works...
 			// should be easy to get angle from gamepad sticks tho
 		}
 		if (hxd.Key.isDown(Key.DOWN)) {
 			this.y--;
-			this.rotation = Math.PI / 2
+			this.rotation = Math.PI / 2;
 		}
 		if (hxd.Key.isDown(Key.LEFT)) {
 			this.x--;
