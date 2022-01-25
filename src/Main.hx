@@ -1,17 +1,18 @@
 import h2d.Object;
-var player:Player;
 
 class Main extends hxd.App {
-	    
+
+	var player:Player;
+
+	
 	override function init() {
 			//super(); //no super?
 			
 			// set global vars
-			G.scene = this.s2d;
-			
+			HP.scene = this.s2d;
 			
 			// add playable character
-			player = new Player(this.s2d, 0x0000FF);
+			player = new Player(HP.scene, 0x0000FF);
 			
       } // init
 	
@@ -20,7 +21,7 @@ class Main extends hxd.App {
 	override function update(dt:Float) {
 	
 		// update global vars
-		G.dt = dt;
+		HP.dt = dt;
 	
 		player.update();
 		

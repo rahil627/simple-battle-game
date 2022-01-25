@@ -13,7 +13,8 @@ class Player extends Object {
 	// Object has new instead of class name / standard constructor?
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
-    		super(parent); // this.super() didn't work...
+		super(parent); // this.super() didn't work...
+		// this somehow draws to the screen automatically, as long as it's on the scene
 		bitmap = new Bitmap(Tile.fromColor(color), this);
 	}
 	
@@ -59,8 +60,8 @@ class Player extends Object {
 		
 	private function addLaser() {	
 		// add laser to the scene, not the player!
-		new Laser(G.scene, this.x, this.y, this.rotation);
-		//or G.scene.addChild())?
+		new Laser(HP.scene, this.x, this.y, this.rotation);
+		//or HP.scene.addChild())?
 		
 		// later on can switch to holding the button down
 		// makes it latch on to the player

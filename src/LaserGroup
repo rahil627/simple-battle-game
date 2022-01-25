@@ -33,8 +33,8 @@ class LaserGroup extends h2d.Object {
 	var g:h2d.Graphics;
 	
 	override function new(?parent Object) {
-		this.super();
-		g = new h2d.Graphics(s2d);
+		this.super(parent);
+		g = new h2d.Graphics(this);
 	}
 	
 	// call me!
