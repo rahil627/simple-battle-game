@@ -24,7 +24,6 @@ class Player extends Object {
 	// call me in the main.update()
 	public function update() {
 		this.updateInputs();
-		
 	}
 	
 	private function updateInputs() {
