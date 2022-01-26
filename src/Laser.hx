@@ -6,9 +6,9 @@ class Laser extends Object {
 	var color:Int;
 
 	public override function new(?parent:Object, x:Float, y:Float, rotation:Float, color:Int = 0xFFFFFF) {
-		super(parent);
-		this.x = parent.x; // starting point
-		this.y = parent.y;
+		super(parent); // scene
+		this.x = x; // starting point
+		this.y = y;
 		this.rotation = rotation; // needed to calculate end-point
 		this.color = color;
 
@@ -24,9 +24,8 @@ class Laser extends Object {
 		// this.alpha -= .00001 * Math.dt;
 	}
 
-	// override for custom drawing stuff
-	// is this automatically called?
-	public override function draw(ctx:h2d.RenderContext) {
+	// Object already has a draw function... soooooo:
+	public function drawLaser() {
 		trace("draw laser");
 
 		// calculate end-point
@@ -39,16 +38,23 @@ class Laser extends Object {
 		// does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
-		G.pen.lineStyle(50, this.color, .8); // todo: set random color
+		var r:Float = Math.random(); // not sure where Int64.max is...	
+		var r2:Int = Math.round(r); // not sure of the value of 0xFFFFFF anyway..
+
+		// does haxe have (Int)float-number feature?
+		// haxe.std not showing up in autocompletion...
+
+		G.pen.lineStyle(50, r2, .8); 
 		drawLine(this.x, this.y, x2, y2);
 	}
 
 	private function drawLine(x:Float, y:Float, x2:Float, y2:Float) {
 		// lineStyle( size : Float = 0, color = 0, alpha = 1. ) {
 		// G.pen.clear?
+		G.pen.beginFill(this.color, .8); //or just linestyle?
 		G.pen.moveTo(x, y);
 		G.pen.lineTo(x2, y2);
-		G.pen.endFill();
+		//G.pen.endFill(); // beginFill does this
 		// G.pen.visible?
 	}
 }

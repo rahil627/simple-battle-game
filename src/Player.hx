@@ -5,6 +5,10 @@ import h2d.Tile;
 import hxd.Key;
 
 class Player extends Object {
+	
+	// adjustable vars
+	var moveSpeed = 5;
+
 	// simple but not efficient 2d graphics object
 	// should use SpriteBatch or TileGroup
 	var bitmap:h2d.Bitmap;
@@ -13,10 +17,15 @@ class Player extends Object {
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
 		super(parent); // this.super() didn't work...
-		
+		this.x = HP.scene.width / 2;
+		this.y = HP.scene.height / 2;
+
+
 		// just use a simple bitmap for now..
 		// this somehow draws to the screen automatically, as long as it's on the scene
 		bitmap = new Bitmap(Tile.fromColor(color), this);
+		bitmap.width = 100;
+		bitmap.height = 100;
 	}
 
 	// no init, update, or anything; that's up to you!
@@ -31,27 +40,28 @@ class Player extends Object {
 		// because if there is no player, there is no need to check for it
 
 		// update moves
-		if (hxd.Key.isDown(Key.RIGHT)) {
-			this.x++;
+		// ghetto movement code
+		if (Key.isDown(Key.RIGHT)) {
+			this.x += HP.dt * moveSpeed;
 			this.rotation = 0;
 			// i'm not sure how the coordinate system works...
 			// should be easy to get angle from gamepad sticks tho
 		}
-		if (hxd.Key.isDown(Key.DOWN)) {
-			this.y--;
+		if (Key.isDown(Key.DOWN)) {
+			this.y -= HP.dt * moveSpeed;
 			this.rotation = Math.PI / 2;
 		}
-		if (hxd.Key.isDown(Key.LEFT)) {
-			this.x--;
-			this.rotation = -Math.PI;
+		if (Key.isDown(Key.LEFT)) {
+			this.x -= HP.dt * moveSpeed;
+			this.rotation = Math.PI;
 		}
-		if (hxd.Key.isDown(Key.UP)) {
-			this.y++;
+		if (Key.isDown(Key.UP)) {
+			this.y += HP.dt * moveSpeed;
 			this.rotation = Math.PI * 1.5;
 		}
 
 		// update attacks
-		if (hxd.Key.isPressed(Key.L)) {
+		if (Key.isPressed(Key.L)) {
 			// L is for Laser!
 			this.addLaser();
 		}

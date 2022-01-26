@@ -1,3 +1,4 @@
+# display completions
 -cp src
 -lib heaps
 -js app.js

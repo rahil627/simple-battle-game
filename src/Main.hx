@@ -6,15 +6,15 @@ class Main extends hxd.App {
 
 	override function init() {
 		// super(); //no super?
-
+		
 		// set global vars
 		HP.scene = this.s2d;
-
+		
 		// use a single graphics drawing class
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
-
+	
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
 	} // init
