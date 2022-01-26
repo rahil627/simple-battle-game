@@ -1,4 +1,4 @@
--cp src # display completions
+-cp src
 -lib heaps
 -js app.js
 -main Main
