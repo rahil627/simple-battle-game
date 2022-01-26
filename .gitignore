@@ -2,8 +2,8 @@
 heaps
 *.n
 *.swf
-#*.js
-#*.js.map
+*.js
+*.js.map
 *.obj
 bin
 .tmp
