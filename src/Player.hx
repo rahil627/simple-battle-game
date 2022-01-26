@@ -13,6 +13,8 @@ class Player extends Object {
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
 		super(parent); // this.super() didn't work...
+		
+		// just use a simple bitmap for now..
 		// this somehow draws to the screen automatically, as long as it's on the scene
 		bitmap = new Bitmap(Tile.fromColor(color), this);
 	}
@@ -56,13 +58,13 @@ class Player extends Object {
 	}
 
 	private function addLaser() {
-		// add laser to the scene, not the player!
+		// note: add laser to the scene, not the player!
 		new Laser(HP.scene, this.x, this.y, this.rotation);
 		// or HP.scene.addChild())?
 
-		// later on can switch to holding the button down
+		// maybe later on can switch to holding the button down
 		// makes it latch on to the player
 		// until the player lets go of the button
-		// this.lasers.addChild(l);
+		// this.addChild(l);
 	}
 }

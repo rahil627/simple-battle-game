@@ -1,4 +1,5 @@
 import h2d.Object;
+import h2d.Graphics;
 
 class Main extends hxd.App {
 	var player:Player;
@@ -8,6 +9,11 @@ class Main extends hxd.App {
 
 		// set global vars
 		HP.scene = this.s2d;
+
+		// use a single graphics drawing class
+		// can later extend it if needed.. (Canvas.hx), not used
+		// but for now.. i put the drawing code in Laser.hx
+		G.pen = new Graphics(HP.scene);
 
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
@@ -29,14 +35,6 @@ class Main extends hxd.App {
 		// do something
 		// }
 
-		// nahhh son, this ain't gonna work
-		// there's no way to clear each individual laser from the canvas
-		// (even if you try to draw over it / erase it,
-		// you could be erasing an overlapping laser)
-		// need a seperate bitmap for each laser
-		// ...and that might be gpu-expensive
-		// so, will need to use SpriteBatch or TileGroup?
-
 		// laser needs to be it's own object
 		// objects have alpha, i think, which can be used
 		// once it's time is up, can remove it
@@ -48,13 +46,13 @@ class Main extends hxd.App {
 		// just use Tile.fromColor(0xFFFFFF) to create the tile
 		// then pass it into the bitmap constructor
 
-		// the Graphics class might just be a single bitmap...
+		// the Graphics class might just be drawing diredctly to the screen!..
 	} // update
 
-	// note: must be place at the end? threw an error:
+	// note: must be placed at the end? threw an error:
 	// module main didn't define object type Main?
 	static function main() {
 		new Main();
 		// what else goes here?
 	}
-} // class main
+} // end of main class 

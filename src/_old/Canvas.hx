@@ -2,6 +2,7 @@
 
 var g:h2d.Graphics; // cannot use dynamic vars here..?
 
+// inheritance vs composite?
 class Canvas {
 	public function new() {
 		g = new h2d.Graphics(s2d); // s2d is the "default" scene in the App class
