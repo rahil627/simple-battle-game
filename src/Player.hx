@@ -7,7 +7,7 @@ import hxd.Key;
 class Player extends Object {
 	
 	// adjustable vars
-	var moveSpeed = 300;
+	var moveSpeed = 1;
 
 
 	var weaponDirection:Float = 0.0;
@@ -73,6 +73,7 @@ class Player extends Object {
 		// update attacks
 		if (Key.isPressed(Key.L)) {
 			// L is for Laser!
+			//TODO: look at heaps for debug output trace statements
 			addLaser();
 		}
 
