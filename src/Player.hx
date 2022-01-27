@@ -7,7 +7,7 @@ import hxd.Key;
 class Player extends Object {
 	
 	// adjustable vars
-	var moveSpeed = 1;
+	var moveSpeed = 3000;
 
 
 	var weaponDirection:Float = 0.0;
@@ -16,7 +16,7 @@ class Player extends Object {
 	// should use SpriteBatch or TileGroup
 	var bitmap:h2d.Bitmap;
 
-	// Object has new instead of class name / standard constructor?
+	// note: classes have new instead of class name / standard constructor
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
 		super(parent); // this.super() didn't work...
@@ -25,7 +25,7 @@ class Player extends Object {
 
 
 		// just use a simple bitmap for now..
-		// this somehow draws to the screen automatically, as long as it's on the scene
+		// this somehow draws to the screen automatically
 		bitmap = new Bitmap(Tile.fromColor(color), this);
 		bitmap.width = 100;
 		bitmap.height = 100;
@@ -35,18 +35,18 @@ class Player extends Object {
 	// super simple framework! awesome!!
 	// call me in the main.update()
 	public function update() {
-		this.updateInputs();
+		updateInputs();
 	}
 
 	private function updateInputs() {
 		// it makes sense to check for input here
 		// because if there is no player, there is no need to check for it
-		
+		// ...but, maybe in the future can leave in the main update
+		// to clearly seperate input and output
+
 		// update moves
 		// ghetto movement code
 		// TODO:these just dont work right...
-		// neither the movement nor rotation work
-		// only down once, then up once, wtf?
 		if (Key.isDown(Key.RIGHT)) {
 			this.x += HP.dt * moveSpeed;
 			//this.rotation = 0;
@@ -74,6 +74,7 @@ class Player extends Object {
 		if (Key.isPressed(Key.L)) {
 			// L is for Laser!
 			//TODO: look at heaps for debug output trace statements
+			trace("pressed L");
 			addLaser();
 		}
 

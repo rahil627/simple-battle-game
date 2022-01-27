@@ -1,4 +1,5 @@
 import h2d.Object;
+import hxd.Key;
 import h2d.Graphics;
 
 class Main extends hxd.App {
@@ -15,13 +16,17 @@ class Main extends hxd.App {
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
 
-		//todo: testing how graphics work
+		//todo: testing graphics
 		G.pen.lineStyle(50, 0x00FFFF, 1);
 		G.pen.moveTo(0, 0);
 		G.pen.lineTo(1000, 1000);
+		
+		new Laser(HP.scene, 500, 500, 250, 250);
 
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
+	
+
 	} // init
 
 	// does this dt differ from Timer.dt?
@@ -30,6 +35,16 @@ class Main extends hxd.App {
 		HP.dt = dt;
 
 		player.update();
+
+		if (Key.isPressed(Key.A)) {
+			trace("pressed A");
+			var color:Int = Math.round(Math.random()*0xFFFFFF);
+
+			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
+
+		}
+
+
 
 		// check collision between player and laser
 		// Objects have an auto-magic getBounds function tho,

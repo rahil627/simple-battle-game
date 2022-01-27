@@ -14,6 +14,7 @@ class Laser extends Graphics {
 		laserColor = color;
 
 		// todo: just testing
+		trace("draw a in laser constructor");
 		this.lineStyle(50, 0xFF0000, 1);
 		drawLine(x, y, 1000, 1000); 
 
@@ -33,7 +34,7 @@ class Laser extends Graphics {
 
 	// Object already has a draw function... soooooo:
 	public function drawLaser() {
-		trace("draw laser");
+		trace("draw laser in function");
 
 		// calculate end-point
 		var angle = this.rotation;
@@ -45,7 +46,7 @@ class Laser extends Graphics {
 		// does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
-		var r:Float = Math.random(); // not sure where Int64.max is...	
+		var r:Float = Math.random() * 0xFFFFFF; // not sure where Int.max is...	
 		var r2:Int = Math.round(r); // not sure of the value of 0xFFFFFF anyway..
 
 		// does haxe have (Int)float-number feature?
