@@ -1,20 +1,26 @@
 import h2d.Object;
 import hxd.Math;
 import hxd.Timer;
+import h2d.Graphics;
 
-class Laser extends Object {
-	var color:Int;
+class Laser extends Graphics {
+	var laserColor:Int;
 
 	public override function new(?parent:Object, x:Float, y:Float, rotation:Float, color:Int = 0xFFFFFF) {
-		super(parent); // scene
+		super(parent); // todo: maybe optional is not good...
 		this.x = x; // starting point
 		this.y = y;
 		this.rotation = rotation; // needed to calculate end-point
-		this.color = color;
+		laserColor = color;
+
+		// todo: just testing
+		this.lineStyle(50, 0xFF0000, 1);
+		drawLine(x, y, 1000, 1000); 
 
 		// Graphics implementation
 		// currently draws using a global graphics class
-
+		drawLaser();
+		
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
 	}
@@ -22,6 +28,7 @@ class Laser extends Object {
 	// call me in main
 	public function update() {
 		// this.alpha -= .00001 * Math.dt;
+		
 	}
 
 	// Object already has a draw function... soooooo:
@@ -44,17 +51,15 @@ class Laser extends Object {
 		// does haxe have (Int)float-number feature?
 		// haxe.std not showing up in autocompletion...
 
-		G.pen.lineStyle(50, r2, .8); 
+		//G.pen.clear()?
+		this.lineStyle(50, r2, .8); 
 		drawLine(this.x, this.y, x2, y2);
 	}
 
+	// maybe can add extension method to Graphics?
+	// if not, just make ra.heaps.GraphicsHelper
 	private function drawLine(x:Float, y:Float, x2:Float, y2:Float) {
-		// lineStyle( size : Float = 0, color = 0, alpha = 1. ) {
-		// G.pen.clear?
-		G.pen.beginFill(this.color, .8); //or just linestyle?
-		G.pen.moveTo(x, y);
-		G.pen.lineTo(x2, y2);
-		//G.pen.endFill(); // beginFill does this
-		// G.pen.visible?
+		this.moveTo(x, y);
+		this.lineTo(x2, y2);
 	}
 }

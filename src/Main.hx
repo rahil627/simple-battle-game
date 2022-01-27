@@ -14,7 +14,12 @@ class Main extends hxd.App {
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
-	
+
+		//todo: testing how graphics work
+		G.pen.lineStyle(50, 0x00FFFF, 1);
+		G.pen.moveTo(0, 0);
+		G.pen.lineTo(1000, 1000);
+
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
 	} // init

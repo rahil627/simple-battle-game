@@ -7,7 +7,10 @@ import hxd.Key;
 class Player extends Object {
 	
 	// adjustable vars
-	var moveSpeed = 5;
+	var moveSpeed = 300;
+
+
+	var weaponDirection:Float = 0.0;
 
 	// simple but not efficient 2d graphics object
 	// should use SpriteBatch or TileGroup
@@ -38,40 +41,51 @@ class Player extends Object {
 	private function updateInputs() {
 		// it makes sense to check for input here
 		// because if there is no player, there is no need to check for it
-
+		
 		// update moves
 		// ghetto movement code
+		// TODO:these just dont work right...
+		// neither the movement nor rotation work
+		// only down once, then up once, wtf?
 		if (Key.isDown(Key.RIGHT)) {
 			this.x += HP.dt * moveSpeed;
-			this.rotation = 0;
+			//this.rotation = 0;
+			weaponDirection = 0;
 			// i'm not sure how the coordinate system works...
 			// should be easy to get angle from gamepad sticks tho
 		}
 		if (Key.isDown(Key.DOWN)) {
 			this.y -= HP.dt * moveSpeed;
-			this.rotation = Math.PI / 2;
+			//this.rotation = Math.PI / 2; 
+			weaponDirection = Math.PI / 2;
 		}
 		if (Key.isDown(Key.LEFT)) {
 			this.x -= HP.dt * moveSpeed;
-			this.rotation = Math.PI;
+			//this.rotation = Math.PI; 
+			weaponDirection = Math.PI;
 		}
 		if (Key.isDown(Key.UP)) {
 			this.y += HP.dt * moveSpeed;
-			this.rotation = Math.PI * 1.5;
+			//this.rotation = Math.PI * 1.5; 
+			weaponDirection = Math.PI * 1.5;
 		}
 
 		// update attacks
 		if (Key.isPressed(Key.L)) {
 			// L is for Laser!
-			this.addLaser();
+			addLaser();
 		}
+
+
 	}
 
 	private function addLaser() {
 		// note: add laser to the scene, not the player!
+		// that way, the coordinates are simple
+		// also, can just add player.id to the laser
 		new Laser(HP.scene, this.x, this.y, this.rotation);
 		// or HP.scene.addChild())?
-
+		HP.scene.addChild(new Laser(this.x, this.y, this.rotation));
 		// maybe later on can switch to holding the button down
 		// makes it latch on to the player
 		// until the player lets go of the button
