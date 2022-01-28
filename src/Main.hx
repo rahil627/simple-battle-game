@@ -1,9 +1,11 @@
 import h2d.Object;
 import hxd.Key;
+import h2d:Interactive;
 import h2d.Graphics;
 
 class Main extends hxd.App {
 	var player:Player;
+	var inputHandler:Interactive;
 
 	override function init() {
 		// super(); //no super?  
@@ -15,9 +17,13 @@ class Main extends hxd.App {
 		HP.debugText =  new h2d.Text(hxd.res.DefaultFont.get(), HP.scene);
 		HP.debugText.text += "Hello World !";
 		
+		// setup input
 		// TODO: is this needed??
 		Key.initialize();
-
+		
+		// TODO: move to HP
+		inputHandler = new Interactive(HP.scene.width, HP.scene.height, HP.scene); // ?collider = HP.scene.getBounds()
+		
 		// TODO: debugging input
 		hxd.Window.getInstance().addEventTarget(onEvent);
 
