@@ -34,7 +34,7 @@ class Laser extends Graphics {
 		// calculate end-point
 		var angle = this.rotation;
 
-		var d = HP.scene.width + HP.scene.height; // todo: lol
+		var d = HP.scene.width + HP.scene.height; // TODO: ? lol
 		var x2 = this.x + d * Math.cos(angle);
 		var y2 = this.y + d * Math.sin(angle);
 
@@ -42,10 +42,10 @@ class Laser extends Graphics {
 		// i mean, the engine only draws what's on screen, right..?
 
 		var r:Float = Math.random() * 0xFFFFFF; // not sure where Int.max is...	
-		var r2:Int = Math.round(r); // not sure of the value of 0xFFFFFF anyway..
+		var r2:Int = Math.round(r); // not sure what the value of 0xFFFFFF is anyway.. 16^6..?
 
-		// does haxe have (Int)float-number feature?
-		// haxe.std not showing up in autocompletion...
+		// TODO: does haxe have (Int)float-number feature?
+		// TODO: haxe.std not showing up in autocompletion...
 
 		//G.pen.clear()?
 		this.lineStyle(50, r2, .8); 
