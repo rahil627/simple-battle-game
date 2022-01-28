@@ -11,11 +11,11 @@ class Main extends hxd.App {
 		// set global vars
 		HP.scene = this.s2d;
 		
-		// init ghetto  debug console
+		// init ghetto debug console
 		HP.debugText =  new h2d.Text(hxd.res.DefaultFont.get(), HP.scene);
 		HP.debugText.text += "Hello World !";
 		
-		// is this needed??
+		// TODO: is this needed??
 		Key.initialize();
 
 		// TODO: debugging input
@@ -26,7 +26,7 @@ class Main extends hxd.App {
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
 
-		//:TODO: testing	
+		//:TODO: testing--OK
 		new Laser(HP.scene, 0, 0, -1000, 500);
 
 		// add playable character
@@ -41,7 +41,7 @@ class Main extends hxd.App {
 				
 	}
 
-	// does this dt differ from Timer.dt?
+	// TODO: does this dt differ from Timer.dt?
 	override function update(dt:Float) {
 		// update global vars
 		HP.dt = dt;
