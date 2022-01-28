@@ -52,8 +52,9 @@ class Laser extends Graphics {
 		drawLine(this.x, this.y, x2, y2);
 	}
 
-	// maybe can add extension method to Graphics?
-	// if not, just make ra.heaps.GraphicsHelper
+	// maybe can add extension method to Graphics?..
+	// TODO: does haxe have extension methods?
+	// if not, just those that shit into ra.Heaps
 	private function drawLine(x:Float, y:Float, x2:Float, y2:Float) {
 		this.moveTo(x, y);
 		this.lineTo(x2, y2);
