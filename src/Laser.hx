@@ -13,11 +13,6 @@ class Laser extends Graphics {
 		this.rotation = rotation; // needed to calculate end-point
 		laserColor = color;
 
-		// todo: just testing
-		trace("draw a in laser constructor");
-		this.lineStyle(50, 0xFF0000, 1);
-		drawLine(x, y, 1000, 1000); 
-
 		// Graphics implementation
 		// currently draws using a global graphics class
 		drawLaser();

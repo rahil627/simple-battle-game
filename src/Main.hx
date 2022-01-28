@@ -6,22 +6,28 @@ class Main extends hxd.App {
 	var player:Player;
 
 	override function init() {
-		// super(); //no super?
+		// super(); //no super?  
 		
 		// set global vars
 		HP.scene = this.s2d;
 		
+		// init ghetto  debug console
+		HP.debugText =  new h2d.Text(hxd.res.DefaultFont.get(), HP.scene);
+		HP.debugText.text += "Hello World !";
+		
+		// is this needed??
+		Key.initialize();
+
+		// TODO: debugging input
+		hxd.Window.getInstance().addEventTarget(onEvent);
+
 		// use a single graphics drawing class
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
 
-		//todo: testing graphics
-		G.pen.lineStyle(50, 0x00FFFF, 1);
-		G.pen.moveTo(0, 0);
-		G.pen.lineTo(1000, 1000);
-		
-		new Laser(HP.scene, 500, 500, 250, 250);
+		//:TODO: testing	
+		new Laser(HP.scene, 0, 0, -1000, 500);
 
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
@@ -29,15 +35,23 @@ class Main extends hxd.App {
 
 	} // init
 
+	// TODO: testing input
+	function onEvent(event : hxd.Event) {
+	    trace(HP.debugText.text += event.toString());
+				
+	}
+
 	// does this dt differ from Timer.dt?
 	override function update(dt:Float) {
 		// update global vars
 		HP.dt = dt;
 
+		// update game stuff	
 		player.update();
-
-		if (Key.isPressed(Key.A)) {
-			trace("pressed A");
+		
+		// testing input continued, but keep the random code!! :)
+		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
+			trace("pressed DOWN");
 			var color:Int = Math.round(Math.random()*0xFFFFFF);
 
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
