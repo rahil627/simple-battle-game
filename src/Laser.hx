@@ -23,7 +23,7 @@ class Laser extends Graphics {
 
 	// call me in main
 	public function update() {
-		// this.alpha -= .00001 * Math.dt;
+		// this.alpha -= .00001 * HP.dt;
 		
 	}
 
