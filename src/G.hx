@@ -2,7 +2,7 @@
 // the scope is local to this game
 // more general helper functions go to ra.Heaps 'n ra.Haxe 'n ra.hp.HP (HaxePunk)
 class G {
-	// the main graphics drawing tool
+	// the main graphics layer
 	public static var pen:h2d.Graphics; // todo: maybe there's an auto-import plugin..
 	
 

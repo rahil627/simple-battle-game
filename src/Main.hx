@@ -16,13 +16,13 @@ class Main extends PunkApp  {
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
 	
-		//:TODO: testing--OK
-		new Laser(HP.scene, 0, 0, -1000, 500);
-
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
 
+		// TODO temp fix until i fix keys
 		HP.screenInputHandler.onMove = addRandomLaser;
+
+
 	} // init
 
 	override function update(dt:Float) {

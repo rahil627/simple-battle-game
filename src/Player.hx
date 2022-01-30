@@ -88,7 +88,7 @@ class Player extends Object {
 		// also, can just add player.id to the laser
 		new Laser(HP.scene, this.x, this.y, this.rotation);
 		// or HP.scene.addChild())?
-		HP.scene.addChild(new Laser(this.x, this.y, this.rotation));
+		// HP.scene.addChild(new Laser(this.x, this.y, this.rotation));
 		// maybe later on can switch to holding the button down
 		// makes it latch on to the player
 		// until the player lets go of the button
