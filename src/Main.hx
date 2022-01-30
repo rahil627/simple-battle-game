@@ -1,32 +1,16 @@
+import ra.hp.PunkApp;
+
 import h2d.Object;
 import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
 
-class Main extends hxd.App {
+class Main extends PunkApp  {
 	var player:Player;
-	var inputHandler:Interactive;
 
 	override function init() {
 		// super(); //no super?  
-		
-		// set global vars
-		HP.scene = this.s2d;
-		
-		// init ghetto debug console
-		HP.debugText =  new h2d.Text(hxd.res.DefaultFont.get(), HP.scene);
-		HP.debugText.text += "Hello World !";
-		
-		// setup input
-		// TODO: is this needed??
-		Key.initialize();
-		
-		// TODO: move to HP
-		inputHandler = new Interactive(HP.scene.width, HP.scene.height, HP.scene); // ?collider = HP.scene.getBounds()
-		
-		// TODO: debugging input
-		hxd.Window.getInstance().addEventTarget(onEvent);
-		
+
 		// use a single graphics drawing class
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
@@ -37,27 +21,16 @@ class Main extends hxd.App {
 
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
-	
+
 
 	} // init
 
-	// TODO: testing input
-	function onEvent(event : hxd.Event) {
-	    trace(HP.debugText.text += event.toString());
-				
-	}
-
-	// TODO: does this dt differ from Timer.dt?
 	override function update(dt:Float) {
-		// update global vars
-		HP.dt = dt;
-
 		// update game stuff	
 		player.update();
 		
 		// testing input continued, but keep the random code!! :)
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
-			trace("pressed DOWN");
 			var color:Int = Math.round(Math.random()*0xFFFFFF);
 
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
