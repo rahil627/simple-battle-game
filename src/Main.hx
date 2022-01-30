@@ -15,14 +15,14 @@ class Main extends PunkApp  {
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
 		G.pen = new Graphics(HP.scene);
-
+	
 		//:TODO: testing--OK
 		new Laser(HP.scene, 0, 0, -1000, 500);
 
 		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
 
-
+		HP.screenInputHandler.onMove = addRandomLaser;
 	} // init
 
 	override function update(dt:Float) {
@@ -34,11 +34,9 @@ class Main extends PunkApp  {
 		// testing input continued, but keep the random code!! :)
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
 			HP.console.log("yay, the buttons finnaly work!!");
-			var color:Int = Math.round(Math.random()*0xFFFFFF);
-
-			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
 
 		}
+	
 
 
 
@@ -64,6 +62,12 @@ class Main extends PunkApp  {
 
 		// the Graphics class might just be drawing diredctly to the screen!..
 	} // update
+
+	function addRandomLaser(e:hxd.Event) {	
+		var color:Int = Math.round(Math.random()*0xFFFFFF);
+
+		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
+	}
 
 	// note: must be placed at the end? threw an error:
 	// module main didn't define object type Main?
