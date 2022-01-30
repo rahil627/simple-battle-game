@@ -9,7 +9,7 @@ class Main extends PunkApp  {
 	var player:Player;
 
 	override function init() {
-		// super(); //no super?  
+		super.init();
 
 		// use a single graphics drawing class
 		// can later extend it if needed.. (Canvas.hx), not used
@@ -26,6 +26,8 @@ class Main extends PunkApp  {
 	} // init
 
 	override function update(dt:Float) {
+		super.update(dt);
+
 		// update game stuff	
 		player.update();
 		
