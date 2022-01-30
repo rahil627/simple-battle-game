@@ -33,6 +33,7 @@ class Main extends PunkApp  {
 		
 		// testing input continued, but keep the random code!! :)
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
+			HP.console.log("yay, the buttons finnaly work!!");
 			var color:Int = Math.round(Math.random()*0xFFFFFF);
 
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);

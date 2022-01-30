@@ -29,6 +29,7 @@ class Player extends Object {
 		bitmap = new Bitmap(Tile.fromColor(color), this);
 		bitmap.width = 100;
 		bitmap.height = 100;
+		bitmap.tile.center();
 	}
 
 	// no init, update, or anything; that's up to you!
