@@ -1,6 +1,6 @@
 import h2d.Object;
 import hxd.Key;
-import h2d:Interactive;
+import h2d.Interactive;
 import h2d.Graphics;
 
 class Main extends hxd.App {
@@ -26,7 +26,7 @@ class Main extends hxd.App {
 		
 		// TODO: debugging input
 		hxd.Window.getInstance().addEventTarget(onEvent);
-
+		
 		// use a single graphics drawing class
 		// can later extend it if needed.. (Canvas.hx), not used
 		// but for now.. i put the drawing code in Laser.hx
