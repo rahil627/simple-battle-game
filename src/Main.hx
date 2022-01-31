@@ -78,7 +78,7 @@ class Main extends PunkApp  {
 	}
 
 	function addRandomLaser() {	
-		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, ra.Haxe.getRandomColor());
+		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, ra.Haxe.getRandomHex());
 	}
 
 	// note: must be placed at the end? threw an error:

@@ -28,7 +28,7 @@ class Laser extends Graphics {
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
-		var rc = ra.Haxe.getRandomColor(); 
+		var rc = ra.Haxe.getRandomHex(); 
 		
 		// TODO: testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
