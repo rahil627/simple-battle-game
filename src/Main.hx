@@ -13,7 +13,7 @@ class Main extends PunkApp  {
 
 		// single graphics drawing class implementation
 		// can later extend it if needed.. (Canvas.hx)
-		//G.pen = new Graphics(HP.scene);
+		//Glob.pen = new Graphics(HP.scene);
 	
 		player = new Player(HP.scene, 0x0000FF);
 
