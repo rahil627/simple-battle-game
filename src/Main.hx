@@ -11,12 +11,10 @@ class Main extends PunkApp  {
 	override function init() {
 		super.init();
 
-		// use a single graphics drawing class
-		// can later extend it if needed.. (Canvas.hx), not used
-		// but for now.. i put the drawing code in Laser.hx
-		G.pen = new Graphics(HP.scene);
+		// single graphics drawing class implementation
+		// can later extend it if needed.. (Canvas.hx)
+		//G.pen = new Graphics(HP.scene);
 	
-		// add playable character
 		player = new Player(HP.scene, 0x0000FF);
 
 		// TODO temp fix until i fix keys

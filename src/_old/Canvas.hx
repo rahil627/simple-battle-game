@@ -1,11 +1,13 @@
 // just a basic class to keep the graphics drawing stuff in one place
 
-var g:h2d.Graphics; // cannot use dynamic vars here..?
+var g:h2d.Graphics; // TODO: cannot use dynamic vars here..?
 
 // inheritance vs composite?
+// composite will result in simpler objects, without inherited functions 'n vars
 class Canvas {
 	public function new() {
 		g = new h2d.Graphics(s2d); // s2d is the "default" scene in the App class
+		// TODO: must ensure to add 'n remove from the scene tree
 	}
 
 	public function paintLaser(x:Float, y:Float, x2:Float, y2:Float) {

@@ -86,7 +86,7 @@ class Player extends Object {
 		// note: add laser to the scene, not the player!
 		// that way, the coordinates are simple
 		// also, can just add player.id to the laser
-		new Laser(HP.scene, this.x, this.y, this.rotation);
+		new Laser(HP.scene, this.x, this.y, this.rotation); // TODO: maybe need to do localToGlobal
 		// or HP.scene.addChild())?
 		// HP.scene.addChild(new Laser(this.x, this.y, this.rotation));
 		// maybe later on can switch to holding the button down
