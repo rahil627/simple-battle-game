@@ -86,13 +86,7 @@ class Laser extends Graphics {
 	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0xFFFFF, alpha:Float = 1.0) {
 		//G.pen.clear()?
 		this.lineStyle(width, color, alpha); 
-		drawLine(this.x, this.y, x2, y2);
-	}
-
-	// TODO: maybe can add extension method to Graphics?..
-	// if not, just those that shit into ra.Heaps
-	private function drawLine(x:Float, y:Float, x2:Float, y2:Float) {
-		//this.lineStyle(50, r2, .8); 
+		//this.drawLine(this.x, this.y, x2, y2);
 		this.moveTo(x, y);
 		this.lineTo(x2, y2);
 	}

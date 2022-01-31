@@ -21,7 +21,7 @@ class Main extends PunkApp  {
 
 		// TODO temp solution until i fix keys
 		HP.screenInputHandler.onPush = touchPressed;
-
+	
 
 	} // init
 
@@ -45,7 +45,8 @@ class Main extends PunkApp  {
 		if (justTouchPressed) {
 			justTouchPressed = false;
 			
-			addRandomLaser();
+			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, Haxe.randomHex()); // Math.random() * Math.PI * 2
+			new Bomb(HP.scene, Math.random(100), Math.random(100), 0, 0xFF0000, Haxe.randomHex());
 		}
 
 	
@@ -77,10 +78,6 @@ class Main extends PunkApp  {
 
 	function touchPressed(e:hxd.Event) {
 		justTouchPressed = true;
-	}
-
-	function addRandomLaser() {	
-		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, Haxe.randomHex());
 	}
 
 	// note: must be placed at the end? threw an error:

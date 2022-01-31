@@ -4,8 +4,9 @@
 // more general helper functions go to ra.Heaps 'n ra.Haxe 'n ra.hp.HP (HaxePunk)
 class Glob {
 	// the main graphics layer
-	public static var pen:h2d.Graphics; // todo: maybe there's an auto-import plugin..
-	
+	//public static var pen:h2d.Graphics; // TODO: map a key to auto-import packages
 
+	// constants
+	public static final laserWidth = 50;
 
 }
