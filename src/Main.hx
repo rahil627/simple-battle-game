@@ -20,7 +20,7 @@ class Main extends PunkApp  {
 		player = new Player(HP.scene, 0x0000FF);
 
 		// TODO temp fix until i fix keys
-		HP.screenInputHandler.onMove = addRandomLaser;
+		HP.screenInputHandler.onPush = addRandomLaser;
 
 
 	} // init

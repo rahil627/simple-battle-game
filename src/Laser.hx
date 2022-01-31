@@ -11,6 +11,7 @@ import h2d.col.Bounds;
 // but, you know, this is good for the purpose to learn the heaps engine
 class Laser extends Graphics {
 	var laserColor:Int;
+	var lifeSpan:Float = 5.0;
 
 	public override function new(parent:Object, x:Float, y:Float, rotation:Float, color:Int = 0xFFFFFF) {
 		super(parent);
@@ -23,7 +24,8 @@ class Laser extends Graphics {
 		// currently draws using a global graphics class
 		drawLaser(); // TODO: draw here vs in main?
 
-		// TODO: testing bounds
+		// TODO: testing bounds, compare with the bounds i calculate
+		// i think they are used to calculate the bounds of all children, heavy stuff
 		var b:Bounds = new Bounds();
 		this.getBounds(this, b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
@@ -39,9 +41,11 @@ class Laser extends Graphics {
 	}
 
 	// call me in main
-	public function update() {
+	public function update(dt:Float) {
 		//this.alpha -= HP.dt / 10;
-		
+		lifeSpan -= dt;	
+		if (lifeSpan <= 0)
+			this.remove();
 	}
 
 	// Object already has a draw function... soooooo:
