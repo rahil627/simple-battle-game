@@ -1,5 +1,6 @@
 import ra.hp.PunkApp;
-
+import ra.Haxe;
+import hxd.Math;
 import h2d.Object;
 import hxd.Key;
 import h2d.Interactive;
@@ -79,7 +80,7 @@ class Main extends PunkApp  {
 	}
 
 	function addRandomLaser() {	
-		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, ra.Haxe.getRandomHex());
+		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, Haxe.randomHex());
 	}
 
 	// note: must be placed at the end? threw an error:

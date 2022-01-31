@@ -814,7 +814,6 @@ FunDecl	heaps/hxsl/Ast.hx	/^typedef FunDecl = {$/;"	t
 FunType	heaps/hxsl/Ast.hx	/^typedef FunType = { args : Array<{ name : String, type : Type }>, ret : Type };$/;"	t
 FunctionKind	heaps/hxsl/Ast.hx	/^enum FunctionKind {$/;"	e
 FxView	heaps/samples/FxView.hx	/^class FxView extends hxd.App {$/;"	c
-G	G.hx	/^class G {$/;"	c
 G	heaps/h3d/shader/pbr/DefaultForward.hx	/^				var G = geometrySchlickGGX(NdV, NdL, roughness);\/\/ Geometric attenuation$/;"	v
 G	heaps/h3d/shader/pbr/Lighting.hx	/^				var G = geometrySchlickGGX(NdV, NdL, roughness);\/\/ Geometric attenuation$/;"	v
 G	heaps/hxd/Key.hx	/^	public static inline var G			= 71;$/;"	v
@@ -862,6 +861,7 @@ GetOutRec	heaps/hxd/clipper/Clipper.hx	/^	private function GetOutRec(idx:Int) : 
 GetOverlap	heaps/hxd/clipper/Clipper.hx	/^	function GetOverlap(a1 : Int, a2 : Int, b1 : Int, b2 : Int)$/;"	f
 Gif	heaps/hxd/res/Image.hx	/^	var Gif = 2;$/;"	v
 GlDriver	heaps/h3d/impl/GlDriver.hx	/^class GlDriver extends Driver {$/;"	c
+Glob	Glob.hx	/^class Glob {$/;"	c
 GlobalSlot	heaps/hxsl/Globals.hx	/^abstract GlobalSlot<T>(Int) {$/;"	a
 Globals	heaps/h3d/shader/Buffers.hx	/^	public var Globals = 0;$/;"	v
 Globals	heaps/hxsl/Globals.hx	/^class Globals {$/;"	c
@@ -1188,7 +1188,7 @@ MacroHelper	heaps/h3d/impl/MacroHelper.hx	/^class MacroHelper {$/;"	c
 MacroParser	heaps/hxsl/MacroParser.hx	/^class MacroParser {$/;"	c
 Macros	heaps/h3d/impl/VarBinding.hx	/^class Macros {$/;"	c
 Macros	heaps/hxsl/Macros.hx	/^class Macros {$/;"	c
-Main	Main.hx	/^class Main extends hxd.App {$/;"	c
+Main	Main.hx	/^class Main extends PunkApp  {$/;"	c
 Main	heaps/tools/hxsl/Main.hx	/^class Main {$/;"	c
 ManagedBuffer	heaps/h3d/impl/ManagedBuffer.hx	/^class ManagedBuffer {$/;"	c
 Manager	heaps/hxd/snd/Manager.hx	/^class Manager {$/;"	c
@@ -1204,7 +1204,7 @@ Material	heaps/hxd/fmt/hmd/Data.hx	/^class Material {$/;"	c
 MaterialDatabase	heaps/h3d/mat/MaterialDatabase.hx	/^class MaterialDatabase {$/;"	c
 MaterialSetup	heaps/h3d/mat/MaterialSetup.hx	/^class MaterialSetup {$/;"	c
 Math	heaps/hxd/Math.hx	/^class Math {$/;"	c
-MathExtensions	ra/hp/MathExtensions.hx	/^class MathExtensions {$/;"	c
+MathEx	ra/hp/MathEx.hx	/^class MathEx {$/;"	c
 Matrix	heaps/h2d/col/Matrix.hx	/^class Matrix {$/;"	c
 Matrix	heaps/h2d/col/Polynomial.hx	/^private class Matrix {$/;"	c
 Matrix	heaps/h3d/Matrix.hx	/^class Matrix {$/;"	c
@@ -1512,6 +1512,7 @@ PropsValues	heaps/h3d/shader/pbr/PropsValues.hx	/^class PropsValues extends hxsl
 Pt	heaps/hxd/clipper/Clipper.hx	/^						var Pt = new IPoint(e.currX, horzEdge.currY);$/;"	v
 Pt	heaps/hxd/clipper/Clipper.hx	/^			var  Pt;$/;"	v
 Pt2IsBetweenPt1AndPt3	heaps/hxd/clipper/Clipper.hx	/^    function Pt2IsBetweenPt1AndPt3(pt1 : IPoint, pt2 : IPoint, pt3 : IPoint) {$/;"	f
+PunkApp	ra/hp/PunkApp.hx	/^class PunkApp extends App {$/;"	c
 Q	heaps/h3d/col/Capsule.hx	/^		var Q = new h3d.col.Point(RD.x-(AB.x*m), RD.y-(AB.y*m), RD.z-(AB.z*m)); \/\/ RD - (AB * m)$/;"	v
 Q	heaps/h3d/shader/SAO.hx	/^			var Q = getPosition(targetUV);$/;"	v
 Q	heaps/hxd/Key.hx	/^	public static inline var Q			= 81;$/;"	v
@@ -2562,6 +2563,7 @@ addPos	heaps/h2d/col/IBounds.hx	/^	public inline function addPos( x : Int, y : I
 addPos	heaps/h3d/col/Bounds.hx	/^	public inline function addPos( x : Float, y : Float, z : Float ) {$/;"	f
 addPropCurve	heaps/h3d/anim/LinearAnimation.hx	/^	public function addPropCurve( objName, propName, values ) {$/;"	f
 addProps	heaps/hxd/fmt/hmd/Dump.hx	/^	function addProps( props : Properties ) {$/;"	f
+addRandomLaser	Main.hx	/^	function addRandomLaser() {	$/;"	f
 addRec	heaps/hxd/clipper/Clipper.hx	/^	function addRec(polynode:PolyNode,polygons:IPolygons) {$/;"	f
 addRec	heaps/hxd/fmt/pak/FileSystem.hx	/^	function addRec( parent : PakEntry, path : String, f : Data.File, pakFile : Int, delta : Int ) /;"	f
 addResizeEvent	heaps/hxd/Window.flash.hx	/^	public function addResizeEvent( f : Void -> Void ) : Void {$/;"	f
@@ -2870,7 +2872,7 @@ amount	heaps/samples/FxView.hx	/^		@param var amount : Float = 1.0;$/;"	v
 amplitude	heaps/h3d/shader/SinusDeform.hx	/^		@param var amplitude : Float;$/;"	v
 anchorX	heaps/h2d/Camera.hx	/^	public var anchorX(default, set) : Float;$/;"	v
 anchorY	heaps/h2d/Camera.hx	/^	public var anchorY(default, set) : Float;$/;"	v
-angle	Laser.hx	/^		var angle = this.rotation;$/;"	v
+angle	Laser.hx	/^	var angle:Float; \/\/ leave Object.angle alone!$/;"	v
 angle	heaps/h2d/Graphics.hx	/^		var angle = Math.PI * 2 \/ nsegments;$/;"	v
 angle	heaps/h2d/Graphics.hx	/^		var angle = angleLength \/ (nsegments - 1);$/;"	v
 angle	heaps/h2d/Graphics.hx	/^		var angle = hxd.Math.degToRad(90) \/ (nsegments - 1);$/;"	v
@@ -2928,6 +2930,7 @@ ap	heaps/hxsl/Cache.hx	/^					var ap = new AllocParam(a.v.name, a.pos, p.instanc
 apiMask	heaps/samples/Mask.hx	/^	var apiMask : MaskWithSample;$/;"	v
 app	heaps/hxd/fmt/fbx/BaseLibrary.hx	/^		var app = "";$/;"	v
 app	heaps/hxd/impl/Air3File.hx	/^			var app = flash.filesystem.File.applicationDirectory;$/;"	v
+app	ra/hp/HP.hx	/^	public static var app:App; \/\/ generally don't touch this \/ abstract this$/;"	v
 appendPixels	heaps/hxd/res/Gradients.hx	/^	static function appendPixels(pixels : hxd.Pixels, dat : Gradient, wid : Int, hei : Int, yoff : /;"	f
 applicationPath	heaps/hxd/File.hx	/^	public static function applicationPath() : String {$/;"	f
 apply	heaps/h2d/KeyFrames.hx	/^	function apply( l : KeyframesLayer, f : KFAnimation ) {$/;"	f
@@ -3081,6 +3084,7 @@ az	heaps/h3d/Quat.hx	/^			var az = dir.cross(ay);$/;"	v
 az	heaps/h3d/Quat.hx	/^		var az = ax.cross(ay);$/;"	v
 az	heaps/samples/Quaternion.hx	/^		var az = new h3d.scene.Box(0xFF000080, true, cube);$/;"	v
 az	heaps/samples/Quaternion.hx	/^		var az = new h3d.scene.Box(0xFF0000FF, true, axis);$/;"	v
+b	Laser.hx	/^		var b = new Bounds(); \/\/ no constructor!$/;"	v
 b	heaps/h2d/CdbLevel.hx	/^				var b = l.tileset.getTileBuilder();$/;"	v
 b	heaps/h2d/Flow.hx	/^				var b = getSize(c);$/;"	v
 b	heaps/h2d/Flow.hx	/^			var b = tmpBounds;$/;"	v
@@ -4534,7 +4538,6 @@ collider	heaps/h3d/prim/HMDModel.hx	/^	var collider : h3d.col.Collider;$/;"	v
 colliders	heaps/h3d/col/Collider.hx	/^	public var colliders : Array<Collider>;$/;"	v
 colliders	heaps/h3d/prim/ModelCache.hx	/^			var colliders = [];$/;"	v
 colliders	heaps/h3d/scene/Object.hx	/^		var colliders = [];$/;"	v
-color	Main.hx	/^			var color:Int = Math.round(Math.random()*0xFFFFFF);$/;"	v
 color	heaps/h2d/Drawable.hx	/^	public var color(default,default) : h3d.Vector;$/;"	v
 color	heaps/h2d/Tile.hx	/^				var color : Int = b.getPixel(x + px, y + py);$/;"	v
 color	heaps/h2d/domkit/BaseComponents.hx	/^		var color = transitionColor(bg1.color, bg2.color, v);$/;"	v
@@ -4703,6 +4706,7 @@ connectEdge	heaps/h2d/col/Voronoi.hx	/^	function connectEdge(edge:Edge, bbox:Bou
 connected	heaps/hxd/Pad.hx	/^	public var connected(default, null) = true;$/;"	v
 connected	heaps/hxd/net/SocketHost.hx	/^	var connected = false;$/;"	v
 console	heaps/samples/Input.hx	/^		var console = new h2d.Console(font, s2d);$/;"	v
+console	ra/hp/HP.hx	/^	public static var console:Console;$/;"	v
 constBits	heaps/hxsl/Shader.hx	/^	var constBits : Int;$/;"	v
 constModified	heaps/hxsl/Shader.hx	/^	var constModified : Bool;$/;"	v
 constants	heaps/hxsl/Eval.hx	/^	var constants : Map<Int,TExprDef>;$/;"	v
@@ -5521,7 +5525,6 @@ debugPeer	heaps/hxd/Worker.hx	/^	var debugPeer : Worker<T>;$/;"	v
 debugPushPos	heaps/h3d/scene/pbr/Renderer.hx	/^	var debugPushPos : { x : Float, y : Float }$/;"	v
 debugShadowMapIndex	heaps/h3d/scene/pbr/Renderer.hx	/^	var debugShadowMapIndex = 0;$/;"	v
 debugSource	heaps/h3d/impl/DirectXDriver.hx	/^	public var debugSource : String;$/;"	v
-debugText	ra/hp/HP.hx	/^	public static var debugText:h2d.Text;$/;"	v
 debugging	heaps/h3d/scene/Renderer.hx	/^	var debugging = false;$/;"	v
 decalsOutput	heaps/h3d/scene/pbr/Renderer.hx	/^	var decalsOutput = new h3d.pass.Output("decals",[$/;"	v
 decayHFRatio	heaps/hxd/snd/effect/Reverb.hx	/^	public var decayHFRatio      : Float; \/\/ [0.1, 2.0]$/;"	v
@@ -5775,7 +5778,6 @@ diff	heaps/h3d/impl/GlDriver.hx	/^		var diff = bits ^ curMatBits;$/;"	v
 diff	heaps/h3d/impl/Stage3dDriver.hx	/^		var diff = bits ^ curMatBits;$/;"	v
 diff	heaps/h3d/shader/DirLight.hx	/^			var diff = transformedNormal.dot(-direction).max(0.);$/;"	v
 diff	heaps/h3d/shader/PointLight.hx	/^			var diff : Float =  isAmbient ? 1. : transformedNormal.dot(dvec).max(0.);$/;"	v
-diff	ra/hp/MathExtensions.hx	/^		    var diff:Int = b - a;$/;"	v
 diffMask	heaps/h3d/impl/GlDriver.hx	/^		var diffMask = maskBits ^ curStMaskBits;$/;"	v
 diffMask	heaps/h3d/impl/Stage3dDriver.hx	/^		var diffMask = maskBits ^ curStMaskBits;$/;"	v
 diffOp	heaps/h3d/impl/GlDriver.hx	/^		var diffOp = opBits ^ curStOpBits;$/;"	v
@@ -6197,7 +6199,7 @@ drawIndirectSpecular	heaps/h3d/shader/pbr/Lighting.hx	/^		@const var drawIndirec
 drawInstanced	heaps/h3d/impl/DirectXDriver.hx	/^	override function drawInstanced(ibuf:IndexBuffer, commands:InstanceBuffer) {$/;"	f
 drawInstanced	heaps/h3d/impl/Driver.hx	/^	public function drawInstanced( ibuf : IndexBuffer, commands : h3d.impl.InstanceBuffer ) {$/;"	f
 drawInstanced	heaps/h3d/impl/GlDriver.hx	/^	override function drawInstanced( ibuf : IndexBuffer, commands : InstanceBuffer ) {$/;"	f
-drawLaser	Laser.hx	/^	public function drawLaser() {$/;"	f
+drawLaser	Laser.hx	/^	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0x/;"	f
 drawLayer	heaps/h2d/Layers.hx	/^	function drawLayer( ctx : RenderContext, layer : Int ) {$/;"	f
 drawLayer	heaps/h2d/RenderContext.hx	/^	function drawLayer( layer : Int ) {$/;"	f
 drawLayer	heaps/samples/Tiled.hx	/^	function drawLayer(map:TiledMapData, tiles:h2d.Tile, layer:Int, size:Int) {$/;"	f
@@ -7810,7 +7812,7 @@ fx	heaps/samples/FxView.hx	/^			var fx = cast(i.local3d, hrt.prefab.fx.FX.FXAnim
 fxaa	heaps/h3d/scene/pbr/Renderer.hx	/^	var fxaa = new h3d.pass.FXAA();$/;"	v
 fy	heaps/h3d/parts/Particle.hx	/^	public var fy : Float;$/;"	v
 fz	heaps/h3d/parts/Particle.hx	/^	public var fz : Float;$/;"	v
-g	_old/Canvas.hx	/^var g:h2d.Graphics; \/\/ cannot use dynamic vars here..?$/;"	v
+g	_old/Canvas.hx	/^var g:h2d.Graphics; \/\/ TODO: cannot use dynamic vars here..?$/;"	v
 g	heaps/h2d/CdbLevel.hx	/^					var g = new LevelGroup(name, t, s.x, s.y, s.w, s.h, s.opts.value);$/;"	v
 g	heaps/h2d/Graphics.hx	/^	public var g : Float;$/;"	v
 g	heaps/h2d/HtmlText.hx	/^				var g = font.getChar(cc);$/;"	v
@@ -8185,6 +8187,7 @@ getEffectDriver	heaps/hxd/snd/Driver.hx	/^	public function getEffectDriver(type 
 getEffectDriver	heaps/hxd/snd/openal/Driver.hx	/^	public function getEffectDriver(type : String) : hxd.snd.Driver.EffectDriver<Dynamic> {$/;"	f
 getEffectDriver	heaps/hxd/snd/webaudio/Driver.hx	/^	public function getEffectDriver(type : String) : hxd.snd.Driver.EffectDriver<Dynamic> {$/;"	f
 getElements	heaps/h2d/SpriteBatch.hx	/^	public inline function getElements() {$/;"	f
+getEndPoint	Laser.hx	/^	private function getEndPoint(startingX:Float, startingY:Float, angle:Float, distance:Float):Poi/;"	f
 getEndpoint	heaps/h2d/col/Voronoi.hx	/^	public inline function getEndpoint() {$/;"	f
 getEnumValue	heaps/hxd/snd/openal/Emulator.hx	/^	public static function getEnumValue(device : Device, enumname : Bytes) : Int {$/;"	f
 getEnumValue	heaps/hxd/snd/openal/Emulator.hx	/^	public static function getEnumValue(ename : Bytes) : Int {$/;"	f
@@ -8735,6 +8738,8 @@ get_range	heaps/h3d/scene/pbr/SpotLight.hx	/^	function get_range() {$/;"	f
 get_renderer	heaps/h2d/Scene.hx	/^	function get_renderer() return ctx;$/;"	f
 get_rxAxis	heaps/hxd/Pad.hx	/^	function get_rxAxis() {$/;"	f
 get_ryAxis	heaps/hxd/Pad.hx	/^	function get_ryAxis() {$/;"	f
+get_sceneHeight	ra/hp/HP.hx	/^	static function get_sceneHeight() {$/;"	f
+get_sceneWidth	ra/hp/HP.hx	/^	static function get_sceneWidth() {$/;"	f
 get_screenDPI	heaps/hxd/System.flash.hx	/^	static function get_screenDPI() : Int {$/;"	f
 get_screenDPI	heaps/hxd/System.hl.hx	/^	static function get_screenDPI() : Int return 72; \/\/ TODO$/;"	f
 get_screenDPI	heaps/hxd/System.hx	/^	static function get_screenDPI() : Int return 72;$/;"	f
@@ -10266,6 +10271,7 @@ init	heaps/samples/Text.hx	/^	override function init() {$/;"	f
 init	heaps/samples/Tiled.hx	/^	override function init() {$/;"	f
 init	heaps/samples/Video.hx	/^	override function init() {$/;"	f
 init	heaps/samples/World.hx	/^	override function init() {$/;"	f
+init	ra/hp/PunkApp.hx	/^	override function init() {$/;"	f
 initAndBind	heaps/h3d/anim/Animation.hx	/^	function initAndBind( obj : h3d.scene.Object ) {$/;"	f
 initAndBind	heaps/h3d/anim/SmoothTarget.hx	/^	override function initAndBind( obj : h3d.scene.Object ) {$/;"	f
 initAndBind	heaps/h3d/anim/Transition.hx	/^	override function initAndBind( obj : h3d.scene.Object ) {$/;"	f
@@ -10394,7 +10400,6 @@ input	heaps/hxd/res/TiledMap.hx	/^			var input = new haxe.io.BytesInput(bytes);$
 input	heaps/hxsl/Serializer.hx	/^	var input : haxe.io.BytesInput;$/;"	v
 input	heaps/samples/Input.hx	/^	var input : h2d.TextInput;$/;"	v
 input	heaps/tools/mikktspace/Mikktspace.hx	/^		var input = new haxe.io.BytesInput(sys.io.File.getBytes(args[0]));$/;"	v
-inputHandler	Main.hx	/^	var inputHandler:Interactive;$/;"	v
 inputHeight	heaps/h2d/filter/AbstractMask.hx	/^	public var inputHeight:Int;$/;"	v
 inputNames	heaps/h3d/impl/Stage3dDriver.hx	/^		var inputNames = [];$/;"	v
 inputOffset	heaps/hxsl/Cache.hx	/^		var inputOffset = declVar("Batch_Start",TFloat,Input);$/;"	v
@@ -10870,6 +10875,7 @@ jointsUpdated	heaps/h3d/scene/Skin.hx	/^	var jointsUpdated : Bool;$/;"	v
 jointype	heaps/hxd/clipper/Clipper.hx	/^	var jointype : JoinType;$/;"	v
 jp	heaps/h3d/scene/Skin.hx	/^		var jp = j.parent;$/;"	v
 json	heaps/hxd/fs/Convert.hx	/^		var json = haxe.Json.parse(srcBytes.toString());$/;"	v
+justTouchPressed	Main.hx	/^	var justTouchPressed = false;$/;"	v
 k	heaps/h2d/Flow.hx	/^		var k = 0;$/;"	v
 k	heaps/h2d/Font.hx	/^			var k = @:privateAccess c.kerning;$/;"	v
 k	heaps/h2d/Font.hx	/^		var k = kerning;$/;"	v
@@ -11282,6 +11288,7 @@ life	heaps/h3d/parts/GpuParticles.hx	/^	public var life(default, set) : Float		=
 life	heaps/h3d/shader/GpuParticle.hx	/^			var life : Float;$/;"	v
 lifeRand	heaps/h2d/Particles.hx	/^	public var lifeRand(default, set) : Float	= 0;$/;"	v
 lifeRand	heaps/h3d/parts/GpuParticles.hx	/^	public var lifeRand(default, set) : Float	= 0;$/;"	v
+lifeSpan	Laser.hx	/^	var lifeSpan:Float = 5.0;$/;"	v
 lifeTimeFactor	heaps/h3d/parts/Particle.hx	/^	public var lifeTimeFactor : Float;$/;"	v
 light	heaps/h3d/mat/Material.hx	/^	var light : Bool;$/;"	v
 light	heaps/h3d/parts/Data.hx	/^	public var light : Value;$/;"	v
@@ -12342,7 +12349,7 @@ move	heaps/h2d/Camera.hx	/^	public inline function move( dx : Float, dy : Float 
 move	heaps/h2d/Object.hx	/^	public function move( dx : Float, dy : Float ) {$/;"	f
 move	heaps/h2d/ObjectFollower.hx	/^			var move = scene.camera.pos.sub(pos).normalized();$/;"	v
 movePosAxis	heaps/h3d/Camera.hx	/^	public function movePosAxis( dx : Float, dy : Float, dz = 0. ) {$/;"	f
-moveSpeed	Player.hx	/^	var moveSpeed = 3000;$/;"	v
+moveSpeed	Player.hx	/^	var moveSpeed = 100;$/;"	v
 moveTargetAxis	heaps/h3d/Camera.hx	/^	public function moveTargetAxis( dx : Float, dy : Float, dz = 0. ) {$/;"	f
 moveTo	heaps/h2d/Graphics.hx	/^	public inline function moveTo(x,y) {$/;"	f
 moveTo	heaps/h3d/scene/Graphics.hx	/^	public function moveTo( x : Float, y : Float, z : Float ) {$/;"	f
@@ -12654,7 +12661,7 @@ neighbors	heaps/h2d/col/Voronoi.hx	/^		var neighbors = [],$/;"	v
 neighbors	heaps/hxd/poly2tri/Triangle.hx	/^	public var neighbors:Array<Triangle>;$/;"	v
 net	heaps/samples/Network.hx	/^	var net : Network;$/;"	v
 networkAllow	heaps/samples/Network.hx	/^	public function networkAllow( op : hxbit.NetworkSerializable.Operation, propId : Int, client : /;"	f
-new	Laser.hx	/^	public override function new(?parent:Object, x:Float, y:Float, rotation:Float, color:Int = 0xFF/;"	f
+new	Laser.hx	/^	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF/;"	f
 new	Player.hx	/^	public override function new(?parent:Object, color:Int) {$/;"	f
 new	_old/Canvas.hx	/^	public function new() {$/;"	f
 new	heaps/h2d/Anim.hx	/^	public function new( ?frames : Array<Tile>, speed : Float = 15, ?parent : h2d.Object ) {$/;"	f
@@ -13817,7 +13824,6 @@ onEnd	heaps/hxd/snd/Mp3Data.hx	/^	var onEnd : Void -> Void;$/;"	v
 onEnterFilter	heaps/h2d/RenderContext.hx	/^	public var onEnterFilter : h2d.Object->Bool;$/;"	v
 onEnterFilter	heaps/h2d/ZGroup.hx	/^	function onEnterFilter(spr : Object) {$/;"	f
 onEnterFilterCached	heaps/h2d/ZGroup.hx	/^	var onEnterFilterCached : Object -> Bool;$/;"	v
-onEvent	Main.hx	/^	function onEvent(event : hxd.Event) {$/;"	f
 onEvent	heaps/h2d/Console.hx	/^	function onEvent( e : hxd.Event ) {$/;"	f
 onEvent	heaps/h3d/anim/Animation.hx	/^	public var onEvent : String -> Void;$/;"	v
 onEvent	heaps/h3d/scene/CameraController.hx	/^	function onEvent( e : hxd.Event ) {$/;"	f
@@ -13827,6 +13833,7 @@ onEvent	heaps/hxd/Pad.hx	/^	static function onEvent( e : Event ){$/;"	f
 onEvent	heaps/hxd/SceneEvents.hx	/^	function onEvent( e : hxd.Event ) {$/;"	f
 onEvent	heaps/hxd/Window.hl.hx	/^	function onEvent( e : #if hldx dx.Event #else sdl.Event #end ) : Bool {$/;"	f
 onEvent	heaps/samples/Polygons.hx	/^	override function onEvent( e : hxd.Event ) {$/;"	f
+onEvent	ra/hp/PunkApp.hx	/^	function onEvent(event : hxd.Event) {$/;"	f
 onFlashSample	heaps/hxd/snd/NativeChannel.hx	/^	function onFlashSample( event : flash.events.SampleDataEvent ) {$/;"	f
 onFocus	heaps/hxd/Window.js.hx	/^	function onFocus(b: Bool) {$/;"	f
 onHierarchyMoved	heaps/h2d/Flow.hx	/^	override function onHierarchyMoved(parentChanged:Bool) {$/;"	f
@@ -13890,6 +13897,7 @@ onResize	heaps/samples/Domkit.hx	/^	override function onResize() {$/;"	f
 onResize	heaps/samples/Interactive.hx	/^	override function onResize() {$/;"	f
 onResize	heaps/samples/Pad.hx	/^	override function onResize() {$/;"	f
 onResize	heaps/samples/Sao.hx	/^	override function onResize() {$/;"	f
+onResize	ra/hp/PunkApp.hx	/^	override function onResize() {$/;"	f
 onSample	heaps/hxd/snd/NativeChannel.hx	/^	@:noDebug function onSample( buf : BufferHandle ) {$/;"	f
 onSample	heaps/hxd/snd/NativeChannel.hx	/^	function onSample( out : haxe.io.Float32Array ) {$/;"	f
 onSample	heaps/hxd/snd/openal/Emulator.hx	/^	override function onSample( out : haxe.io.Float32Array ) {$/;"	f
@@ -14158,6 +14166,7 @@ ox	heaps/h2d/domkit/Style.hx	/^		var ox = e.relX, oy = e.relY;$/;"	v
 ox	heaps/hxd/SceneEvents.hx	/^				var ox = e.relX, oy = e.relY;$/;"	v
 ox	heaps/hxd/SceneEvents.hx	/^		var ox = event.relX, oy = event.relY;$/;"	v
 oy	heaps/h2d/CdbLevel.hx	/^				var oy = Std.int(o.y \/ tileset.size);$/;"	v
+p	Laser.hx	/^		var p = getEndPoint(this.x, this.y, angle, d);$/;"	v
 p	heaps/h2d/Dropdown.hx	/^		var p = getProperties(arrow);$/;"	v
 p	heaps/h2d/Flow.hx	/^					var p = propAt(i);$/;"	v
 p	heaps/h2d/Flow.hx	/^					var p = propAt(j);$/;"	v
@@ -14761,7 +14770,7 @@ pdy	heaps/h2d/col/RoundRect.hx	/^			var pdy = y + tl2 * dy - p.y;$/;"	v
 pdy	heaps/h2d/col/Segment.hx	/^			var pdy = y + tl2 * dy - p.y;$/;"	v
 pdy	heaps/hxd/poly2tri/Utils.hx	/^		var pdy = pd.y;$/;"	v
 peek	heaps/hxd/fmt/fbx/Parser.hx	/^	function peek() {$/;"	f
-pen	G.hx	/^	public static var pen:h2d.Graphics; \/\/ todo: maybe there's an auto-import plugin..$/;"	v
+pen	Glob.hx	/^	public static var pen:h2d.Graphics; \/\/ todo: maybe there's an auto-import plugin..$/;"	v
 pending	heaps/h3d/mat/BigTexture.hx	/^	var pending : Array<{ t : hxd.res.Image, q : QuadTree, alpha : Bool, skip : Bool }>;$/;"	v
 pending	heaps/h3d/scene/Trail.hx	/^	var pending = new TrailElement(); \/\/ tmp$/;"	v
 pendingEvents	heaps/hxd/SceneEvents.hx	/^	var pendingEvents : Array<hxd.Event>;$/;"	v
@@ -15688,7 +15697,6 @@ qz	heaps/h3d/anim/BufferAnimation.hx	/^					var qz = q1z * k1 + q2z * q2;$/;"	v
 qz	heaps/h3d/anim/LinearAnimation.hx	/^				var qz = f1.qz * k1 + f2.qz * q2;$/;"	v
 qz	heaps/h3d/anim/LinearAnimation.hx	/^	public var qz : Float;$/;"	v
 qz	heaps/hxd/fmt/hmd/Data.hx	/^	public var qz : Float;$/;"	v
-r	Laser.hx	/^		var r:Float = Math.random() * 0xFFFFFF; \/\/ not sure where Int.max is...	$/;"	v
 r	heaps/h2d/Graphics.hx	/^	public var r : Float;$/;"	v
 r	heaps/h2d/Object.hx	/^		var r = relativeTo.matA * relativeTo.matD - relativeTo.matB * relativeTo.matC;$/;"	v
 r	heaps/h2d/Particles.hx	/^				var r = g.emitStartDist + g.emitDist * rand();$/;"	v
@@ -15803,7 +15811,6 @@ r0	heaps/h3d/pass/DirShadowMap.hx	/^							var r0 = new h3d.col.Point(px,py,boun
 r1	heaps/h3d/anim/Transition.hx	/^		var r1 = 1, r2 = 1;$/;"	v
 r1	heaps/hxd/Math.hx	/^		var r1 = (c1 >> 16) & 0xFF;$/;"	v
 r1	heaps/hxsl/AgalOut.hx	/^			var r1 = expr(e1);$/;"	v
-r2	Laser.hx	/^		var r2:Int = Math.round(r); \/\/ not sure what the value of 0xFFFFFF is anyway.. 16^6..?$/;"	v
 r2	heaps/h3d/col/Sphere.hx	/^		var r2 = this.r * this.r;$/;"	v
 r2	heaps/hxd/Math.hx	/^		var r2 = (c2 >> 16) & 0xFF;$/;"	v
 r2	heaps/hxsl/AgalOut.hx	/^				var r2 = swiz(r2,[X,Y,Z]);$/;"	v
@@ -15831,6 +15838,8 @@ ra	heaps/hxsl/AgalOut.hx	/^			var ra = expr(a);$/;"	v
 ra	ra/Haxe.hx	/^package ra; \/\/ is this not implied by the path name?$/;"	p
 ra	ra/Heaps.hx	/^package ra;$/;"	p
 ra.hp	ra/hp/HP.hx	/^package ra.hp;$/;"	p
+ra.hp	ra/hp/MathEx.hx	/^package ra.hp; \/\/ or hxd?$/;"	p
+ra.hp	ra/hp/PunkApp.hx	/^package ra.hp;$/;"	p
 radToDeg	heaps/hxd/Math.hx	/^	public static inline function radToDeg( rad : Float) {$/;"	f
 radian	heaps/samples/Polygons.hx	/^			var radian = Math.atan2((curPos.y - target.y), (curPos.x - target.x));$/;"	v
 radius	heaps/h2d/filter/Blur.hx	/^	public var radius(get, set) : Float;$/;"	v
@@ -15852,8 +15861,10 @@ randProp	heaps/h3d/shader/GpuParticle.hx	/^		var randProp : Float;$/;"	v
 randValues	heaps/h3d/parts/Particle.hx	/^	public var randValues : Array<Float>;$/;"	v
 random	heaps/hxd/Math.hx	/^	public inline static function random( max = 1.0 ) {$/;"	f
 random	heaps/hxd/Rand.hx	/^	public inline function random( n ) {$/;"	f
-randomBetween	ra/hp/MathExtensions.hx	/^	public static function randomBetween(cl:Class<Math>, a:Int, b:Int) {$/;"	f
+random	ra/hp/MathEx.hx	/^	public inline static function random( max = 1.0  ) {$/;"	f
+randomBetween	ra/hp/MathEx.hx	/^	public static function randomBetween(cl:Class<Math>, a:Int, b:Int) {$/;"	f
 randomDir	heaps/h3d/parts/Data.hx	/^	public var randomDir : Bool;$/;"	v
+randomHex	ra/hp/MathEx.hx	/^	public static function randomHex(cl:Class<Math>):Int {$/;"	f
 randomPatternRotationAngle	heaps/h3d/shader/SAO.hx	/^			var randomPatternRotationAngle = 2.0 * PI * sampleNoise;$/;"	v
 range	heaps/h3d/scene/pbr/PointLight.hx	/^		var range = hxd.Math.max(range, 1e-10);$/;"	v
 range	heaps/h3d/scene/pbr/PointLight.hx	/^	public var range(get,set) : Float;$/;"	v
@@ -15917,6 +15928,7 @@ rbRight	heaps/h2d/col/Voronoi.hx	/^	public var rbRight : T;$/;"	v
 rbRotateLeft	heaps/h2d/col/Voronoi.hx	/^	function rbRotateLeft(node:T) {$/;"	f
 rbRotateRight	heaps/h2d/col/Voronoi.hx	/^	function rbRotateRight(node:T) {$/;"	f
 rbmp	heaps/hxd/res/FontBuilder.hx	/^		var rbmp = hxd.BitmapData.fromNative(ctx);$/;"	v
+rc	Laser.hx	/^		var rc = Math.randomHex(); $/;"	v
 rc	heaps/hxsl/CacheFile.hx	/^		var rc = new RuntimeShader();$/;"	v
 rc	heaps/hxsl/CacheFile.hx	/^		var rc = new hxsl.RuntimeShader.RuntimeShaderData();$/;"	v
 rcpDirMin	heaps/h3d/pass/FXAA.hx	/^			var rcpDirMin = 1 \/ (min(abs(dir.x), abs(dir.y)) + dirReduce);$/;"	v
@@ -16878,9 +16890,11 @@ scene	heaps/h3d/scene/CameraController.hx	/^	var scene : h3d.scene.Scene;$/;"	v
 scene	heaps/h3d/scene/Interactive.hx	/^	var scene : Scene;$/;"	v
 scene	heaps/h3d/scene/MeshBatch.hx	/^		var scene = getScene();$/;"	v
 scene	heaps/h3d/scene/RenderContext.hx	/^	public var scene : Scene;$/;"	v
-scene	ra/hp/HP.hx	/^	public static var scene:h2d.Scene; \/\/ = App.s2d$/;"	v
+scene	ra/hp/HP.hx	/^	public static var scene:Scene; \/\/ = App.s2d; TODO: try to abstract this here$/;"	v
+sceneHeight	ra/hp/HP.hx	/^	public static var sceneHeight(get, default):Int;$/;"	v
 sceneInfo	heaps/samples/ScaleMode2D.hx	/^		var sceneInfo:h2d.Text = null;$/;"	v
 sceneToCamera	heaps/h2d/Camera.hx	/^	public function sceneToCamera( pt : h2d.col.Point ) {$/;"	f
+sceneWidth	ra/hp/HP.hx	/^	public static var sceneWidth(get, default):Int;$/;"	v
 sceneXToCamera	heaps/h2d/Camera.hx	/^	inline function sceneXToCamera( mx : Float, my : Float ) : Float {$/;"	f
 sceneYToCamera	heaps/h2d/Camera.hx	/^	inline function sceneYToCamera( mx : Float, my : Float ) : Float {$/;"	f
 scenes	heaps/h2d/domkit/Style.hx	/^			var scenes = [];$/;"	v
@@ -16903,6 +16917,8 @@ screenDPI	heaps/hxd/System.flash.hx	/^	public static var screenDPI(get,never) : 
 screenDPI	heaps/hxd/System.hl.hx	/^	public static var screenDPI(get,never) : Float;$/;"	v
 screenDPI	heaps/hxd/System.hx	/^	public static var screenDPI(get,never) : Float;$/;"	v
 screenDPI	heaps/hxd/System.js.hx	/^	public static var screenDPI(get,never) : Float;$/;"	v
+screenInputHandler	ra/hp/HP.hx	/^	public static var screenInputHandler:Interactive;$/;"	v
+screenInputHandler	ra/hp/PunkApp.hx	/^	var screenInputHandler:h2d.Interactive;$/;"	v
 screenLightPass	heaps/h3d/scene/pbr/Renderer.hx	/^	var screenLightPass : h3d.pass.ScreenFx<h3d.shader.ScreenShader>;$/;"	v
 screenPos	heaps/h3d/shader/VolumeDecal.hx	/^			var screenPos = projectedPosition.xy \/ projectedPosition.w;$/;"	v
 screenPos	heaps/h3d/shader/pbr/VolumeDecal.hx	/^				var screenPos = projectedPosition.xy \/ projectedPosition.w;$/;"	v
@@ -17644,6 +17660,8 @@ set_width	heaps/h2d/col/IBounds.hx	/^	inline function set_width(w) {$/;"	f
 set_width	heaps/h2d/domkit/BaseComponents.hx	/^	static function set_width( o : h2d.Bitmap, v : Null<Float> ) {$/;"	f
 set_width	heaps/h2d/domkit/BaseComponents.hx	/^	static function set_width( o : h2d.Flow, v ) {$/;"	f
 set_width	heaps/h2d/domkit/BaseComponents.hx	/^	static function set_width( o : h2d.TextInput, v ) {$/;"	f
+set_windowDisplayMode	ra/hp/HP.hx	/^	static function set_windowDisplayMode(dm:DisplayMode):DisplayMode {$/;"	f
+set_windowTitle	ra/hp/HP.hx	/^	static function set_windowTitle(s:String):String {$/;"	f
 set_wrap	heaps/h2d/filter/Displacement.hx	/^	function set_wrap(w) {$/;"	f
 set_wrap	heaps/h3d/mat/Texture.hx	/^	function set_wrap(w:Wrap) {$/;"	f
 set_x	heaps/h2d/Camera.hx	/^	inline function set_x( v ) {$/;"	f
@@ -19643,6 +19661,7 @@ totalVertices	heaps/h3d/Buffer.hx	/^	public function totalVertices() {$/;"	f
 totalWeight	heaps/h3d/scene/pbr/Environment.hx	/^			var totalWeight = 1e-10;$/;"	v
 totx	heaps/h2d/Graphics.hx	/^			var totx = tx - sx, toty = ty - sy;$/;"	v
 touchId	heaps/hxd/Event.hx	/^	public var touchId : Int;$/;"	v
+touchPressed	Main.hx	/^	function touchPressed(e:hxd.Event) {$/;"	f
 tout	heaps/h2d/filter/ColorMatrix.hx	/^		var tout = ctx.textures.allocTileTarget("colorMatrixOut", t);$/;"	v
 tp	heaps/hxd/fmt/fbx/BaseLibrary.hx	/^			var tp = 0, rp = 0, sp = 0, ap = 0, uvp = 0, fovp = 0, rollp = 0;$/;"	v
 tpath	heaps/hxd/res/FileTree.hx	/^		var tpath = { pack : ["hxd", "_res"], name : name, params : [] };$/;"	v
@@ -19970,7 +19989,7 @@ up	heaps/h3d/scene/Trail.hx	/^		var up = new h3d.col.Point(0, Math.sin(angle), M
 up	heaps/h3d/scene/pbr/Environment.hx	/^			var up = abs(n.z) < 0.999 ? vec3(0, 0, 1) : vec3(1, 0, 0);$/;"	v
 up	heaps/hxd/snd/Listener.hx	/^	public var up  : h3d.Vector;$/;"	v
 upAxis	heaps/hxd/fmt/fbx/BaseLibrary.hx	/^		var upAxis = 1;$/;"	v
-update	Laser.hx	/^	public function update() {$/;"	f
+update	Laser.hx	/^	public function update(dt:Float) {$/;"	f
 update	Main.hx	/^	override function update(dt:Float) {$/;"	f
 update	Player.hx	/^	public function update() {$/;"	f
 update	heaps/h2d/Particles.hx	/^	override function update(et:Float) {$/;"	f
@@ -20034,6 +20053,7 @@ update	heaps/samples/Stencil.hx	/^	override function update( dt : Float ) {$/;"	
 update	heaps/samples/Text.hx	/^	override function update(dt:Float) {$/;"	f
 update	heaps/samples/Video.hx	/^	override function update(dt:Float) {$/;"	f
 update	heaps/samples/World.hx	/^	override function update(dt:Float) {$/;"	f
+update	ra/hp/PunkApp.hx	/^	override function update(dt:Float) {$/;"	f
 updateBG	heaps/hxd/fmt/pak/Loader.hx	/^	function updateBG( progress : Float ) {$/;"	f
 updateBits	heaps/h3d/scene/World.hx	/^	public function updateBits() {$/;"	f
 updateBounds	heaps/h2d/TileGroup.hx	/^		inline function updateBounds( x, y ) {$/;"	f
@@ -20853,7 +20873,7 @@ watchCallb	heaps/hxd/res/Sound.hx	/^	function watchCallb() {$/;"	f
 watchCallback	heaps/hxd/fs/LocalFileSystem.hx	/^	var watchCallback : Void -> Void;$/;"	v
 watchTime	heaps/hxd/fs/LocalFileSystem.hx	/^	var watchTime : Float;$/;"	v
 wav	heaps/hxd/fs/Convert.hx	/^			var wav = new format.wav.Reader(f).read();$/;"	v
-weaponDirection	Player.hx	/^	var weaponDirection:Float = 0.0;$/;"	v
+weaponDirection	Player.hx	/^	var weaponDirection = 0.0;$/;"	v
 webRoot	heaps/samples/templates/.vscode/launch.json	/^			"webRoot": "${workspaceFolder}",$/;"	s	object:configurations.1
 weight	heaps/hxd/Perlin.hx	/^		var weight = 1.;$/;"	v
 weights	heaps/h3d/shader/Skin.hx	/^			var weights : Vec3;$/;"	v
@@ -20939,7 +20959,10 @@ window	heaps/hxd/SceneEvents.hx	/^	var window : hxd.Window;$/;"	v
 window	heaps/hxd/System.js.hx	/^			var window : Dynamic = js.Browser.window;$/;"	v
 window	heaps/hxd/Window.hl.hx	/^	var window : dx.Window;$/;"	v
 window	heaps/hxd/Window.hl.hx	/^	var window : sdl.Window;$/;"	v
+window	ra/hp/HP.hx	/^	public static var window:Window; \/\/ generally don't touch this; for advanced use only$/;"	v
+windowDisplayMode	ra/hp/HP.hx	/^	public static var windowDisplayMode(default, set):DisplayMode;$/;"	v
 windowHeight	heaps/hxd/Window.hl.hx	/^	var windowHeight = 600;$/;"	v
+windowTitle	ra/hp/HP.hx	/^	public static var windowTitle(default, set):String; \/\/ try to keep class name in var name$/;"	v
 windowWidth	heaps/hxd/Window.hl.hx	/^	var windowWidth = 800;$/;"	v
 wireframe	heaps/h3d/impl/GlDriver.hx	/^		var wireframe = bits & Pass.wireframe_mask != 0;$/;"	v
 wm	heaps/h3d/scene/World.hx	/^		var wm = new WorldMaterial();$/;"	v
@@ -21124,7 +21147,7 @@ x1	heaps/h2d/Graphics.hx	/^		var x1, y1;$/;"	v
 x1	heaps/h2d/KeyFrames.hx	/^			var x1 = bezier(c1x, c2x, maxT);$/;"	v
 x1	heaps/h2d/Mask.hx	/^		var x1 = object.absX + scrollX;$/;"	v
 x1	heaps/h3d/scene/Trail.hx	/^			var x1 = pending.x;$/;"	v
-x2	Laser.hx	/^		var x2 = this.x + d * Math.cos(angle);$/;"	v
+x2	Laser.hx	/^		var x2 = x + distance * Math.cos(angle);$/;"	v
 x2	heaps/h2d/Mask.hx	/^		var x2 = width * object.matA + height * object.matC + x1;$/;"	v
 x2	heaps/h2d/RenderContext.hx	/^			var x2 = x + w, y2 = y + h;$/;"	v
 x2	heaps/h2d/RenderContext.hx	/^		var x2 = Math.min( x + w, renderX + renderW );$/;"	v
@@ -21298,7 +21321,7 @@ y0	heaps/h3d/scene/Trail.hx	/^			var y0 = prev.y;$/;"	v
 y1	heaps/h2d/KeyFrames.hx	/^			var y1 = bezier(c1y, c2y, maxT);$/;"	v
 y1	heaps/h2d/Mask.hx	/^		var y1 = object.absY + scrollY;$/;"	v
 y1	heaps/h3d/scene/Trail.hx	/^			var y1 = pending.y;$/;"	v
-y2	Laser.hx	/^		var y2 = this.y + d * Math.sin(angle);$/;"	v
+y2	Laser.hx	/^		var y2 = y + distance * Math.sin(angle);$/;"	v
 y2	heaps/h2d/Mask.hx	/^		var y2 = width * object.matB + height * object.matD + y1;$/;"	v
 y2	heaps/h2d/RenderContext.hx	/^		var y2 = Math.min( y + h, renderY + renderH );$/;"	v
 y2	heaps/h2d/col/Point.hx	/^		var y2 = x * s + y * c;$/;"	v
