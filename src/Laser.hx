@@ -16,17 +16,23 @@ class Laser extends Graphics {
 	var laserColor:Int;
 	var lifeSpan:Float = 5.0;
 	var angle:Float; // leave Object.angle alone!
+	var startingPoint:Point;
+	var endingPoint:Point;
 
 	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super(parent);
-		this.x = x; // TODO: using this as starting point, maybe not good idea...
-		this.y = y; // can maybe get Bounds center
+		this.x = 0; // don't use these! just draw using absolute coordinates
+
+		this.y = 0; // can maybe get Bounds center
 		this.angle = angle; // needed to calculate end-point
 		laserColor = color;
 
+		var sp = startingPoint = new Point(x, y);
+
 		// calculate screen intersection
 		var d = HP.scene.width + HP.scene.height; // TODO: ? lol
-		var p = getEndPoint(this.x, this.y, angle, d);
+		var ep = endingPoint = getEndPoint(x, y, angle, d);
+
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
@@ -39,7 +45,7 @@ class Laser extends Graphics {
 
 		HP.console.log("bounds BEFORE draw");	
 
-		b.set(x, y, p.x, p.y); 
+		b.set(sp.x, sp.y, ep.x, ep.y); 
 		HP.console.log("my bounds " + b.toString());
 
 		this.getBounds(this, b); //TODO: relative to..? this or parent
@@ -52,11 +58,11 @@ class Laser extends Graphics {
 		HP.console.log("getBoundsRec2 " + b.toString());
 		
 		// Graphics implementation
-		drawLaser(x,y, p.x, p.y, 50, rc, .8); // TODO: draw here vs in main?
+		drawLaser(sp.x, sp.y, ep.x, ep.y, Glob.laserWidth, rc, .8); // TODO: draw here vs in main?
 
 		HP.console.log("bounds AFTER draw");	
 		
-		b.set(x, y, p.x, p.y); 
+		b.set(sp.x, sp.y, ep.x, ep.y); 
 		HP.console.log("my bounds " + b.toString());
 
 		this.getBounds(this, b); //TODO: relative to..? this or parent
