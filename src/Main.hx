@@ -7,7 +7,7 @@ import h2d.Graphics;
 
 class Main extends PunkApp  {
 	var player:Player;
-
+	var justTouchPressed = false;
 	override function init() {
 		super.init();
 
@@ -17,8 +17,8 @@ class Main extends PunkApp  {
 	
 		player = new Player(HP.scene, 0x0000FF);
 
-		// TODO temp fix until i fix keys
-		HP.screenInputHandler.onPush = addRandomLaser;
+		// TODO temp solution until i fix keys
+		HP.screenInputHandler.onPush = touchPressed;
 
 
 	} // init
@@ -26,14 +26,26 @@ class Main extends PunkApp  {
 	override function update(dt:Float) {
 		super.update(dt);
 
+		// ideally:
+		// do logic stuff based on input *first*
+		// *then* draw
+
+
 		// update game stuff	
 		player.update();
 		
-		// testing input continued, but keep the random code!! :)
+		// testing input continued
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
-			HP.console.log("yay, the buttons finnaly work!!");
+			HP.console.log("yay, the buttons finally work!!");
 
 		}
+
+		if (justTouchPressed) {
+			justTouchPressed = false;
+			
+			addRandomLaser();
+		}
+
 	
 
 
@@ -61,10 +73,12 @@ class Main extends PunkApp  {
 		// the Graphics class might just be drawing diredctly to the screen!..
 	} // update
 
-	function addRandomLaser(e:hxd.Event) {	
-		var color:Int = Math.round(Math.random()*0xFFFFFF);
+	function touchPressed(e:hxd.Event) {
+		justTouchPressed = true;
+	}
 
-		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, color);
+	function addRandomLaser() {	
+		new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, Math.random() * Math.PI * 2, ra.Haxe.getRandomColor());
 	}
 
 	// note: must be placed at the end? threw an error:

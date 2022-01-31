@@ -17,8 +17,8 @@ class Laser extends Graphics {
 
 	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super(parent);
-		this.x = x; // starting point
-		this.y = y;
+		this.x = x; // TODO: using this as starting point, maybe not good idea...
+		this.y = y; // can maybe get Bounds center
 		this.angle = angle; // needed to calculate end-point
 		laserColor = color;
 
@@ -29,15 +29,33 @@ class Laser extends Graphics {
 		// i mean, the engine only draws what's on screen, right..?
 
 		var rc = ra.Haxe.getRandomColor(); 
+		
+		// TODO: testing bounds, compare with the bounds i calculate
+		// i think they are used to calculate the bounds of all children, heavy stuff
+		// results: it works, maybe just slightly off, and maybe different coordinate system
+		var b = new Bounds(); // no constructor!
 
+		HP.console.log("bounds BEFORE draw");	
+
+		b.set(x, y, p.x, p.y); 
+		HP.console.log("my bounds " + b.toString());
+
+		this.getBounds(this, b); //TODO: relative to..? this or parent
+		HP.console.log("getBounds " + b.toString());
+		
+		this.getBoundsRec(this, b, true); 
+		HP.console.log("getBoundsRec " + b.toString());	
+
+		this.getBoundsRec(this, b, false); 
+		HP.console.log("getBoundsRec2 " + b.toString());
+		
 		// Graphics implementation
 		drawLaser(x,y, p.x, p.y, 50, rc, .8); // TODO: draw here vs in main?
 
-		// TODO: testing bounds, compare with the bounds i calculate
-		// i think they are used to calculate the bounds of all children, heavy stuff
-		var b = new Bounds(); // no constructor!
-				
+		HP.console.log("bounds AFTER draw");	
+		
 		b.set(x, y, p.x, p.y); 
+		HP.console.log("my bounds " + b.toString());
 
 		this.getBounds(this, b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
