@@ -5,12 +5,13 @@ import h2d.Tile;
 import hxd.Key;
 
 class Player extends Object {
-	
+
+	// const vars
+
 	// adjustable vars
-	var moveSpeed = 3000;
+	var moveSpeed = 100;
 
-
-	var weaponDirection:Float = 0.0;
+	var weaponDirection = 0.0;
 
 	// simple but not efficient 2d graphics object
 	// should use SpriteBatch or TileGroup
@@ -49,7 +50,7 @@ class Player extends Object {
 		// ghetto movement code
 		// TODO:these just dont work right...
 		if (Key.isDown(Key.RIGHT)) {
-			this.x += HP.dt * moveSpeed;
+			this.x += HP.dt * moveSpeed; // ~1/60 * 10 or 10 pixels per second
 			//this.rotation = 0;
 			weaponDirection = 0;
 			// i'm not sure how the coordinate system works...

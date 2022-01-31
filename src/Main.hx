@@ -8,6 +8,7 @@ import h2d.Graphics;
 class Main extends PunkApp  {
 	var player:Player;
 	var justTouchPressed = false;
+	
 	override function init() {
 		super.init();
 
@@ -34,7 +35,7 @@ class Main extends PunkApp  {
 		// update game stuff	
 		player.update();
 		
-		// testing input continued
+		// TODO: testing input continued
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
 			HP.console.log("yay, the buttons finally work!!");
 
