@@ -46,7 +46,7 @@ class Main extends PunkApp  {
 			justTouchPressed = false;
 			
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, Haxe.randomHex()); // Math.random() * Math.PI * 2
-			new Bomb(HP.scene, Math.random(100), Math.random(100), 0, 0xFF0000, Haxe.randomHex());
+			new Bomb(HP.scene, Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, Haxe.randomHex());
 		}
 
 	
