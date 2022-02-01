@@ -26,8 +26,12 @@ class Bomb extends Graphics {
 		// TODO: test local 'n global positions
 		var p = this.localToGlobal();
 		this.beginFill(0x00FF00, .8);
-		this.drawRect(p.x, p.y, w, w);
+		this.drawRect(0, 0, w, w);
 		this.endFill();
+
+		// then just draw from p0,0 to 4 directions
+		// TODO: local coordinates is actually much nicer,
+		// keeping the object all-together in one place
 		*/
 
 		// draw horizontal line
