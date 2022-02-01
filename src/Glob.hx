@@ -10,3 +10,10 @@ class Glob {
 	public static final laserWidth = 50;
 
 }
+
+// enums are my fav!
+enum LayerName {
+	players;
+	background;
+	projectiles;
+}
