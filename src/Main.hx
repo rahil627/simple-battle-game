@@ -6,7 +6,7 @@ import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
 
-class Main extends PunkApp  {
+class Main extends PunkApp {
 	var player:Player;
 	var justTouchPressed = false;
 	
