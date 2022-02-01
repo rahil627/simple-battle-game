@@ -7,6 +7,9 @@ import h2d.Interactive;
 import h2d.Graphics;
 
 class Main extends PunkApp {
+	public static var entities:Array<Entity>;
+	//public static var world:Layer;
+	
 	var player:Player;
 	var justTouchPressed = false;
 	
@@ -17,6 +20,9 @@ class Main extends PunkApp {
 		// can later extend it if needed.. (Canvas.hx)
 		//Glob.pen = new Graphics(HP.scene);
 	
+		entities = [];
+		//world = new Layer(HP.scene);
+
 		player = new Player(HP.scene, 0x0000FF);
 
 		// TODO temp solution until i fix keys

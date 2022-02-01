@@ -1,8 +1,12 @@
 // glawble glawble glawb glob
 // just a place to store commonly-used global objects 'n vars
 // the scope is local to this game
-// more general helper functions go to ra.Heaps 'n ra.Haxe 'n ra.hp.HP (HaxePunk)
+// more general helper functions go to ra.Heaps 'n ra.Haxe 'n ra.hp.HP (HeapsPunk)
 class Glob {
+	
+	public static var entities:Array<Entity>;
+	//public static var world:Layer;
+
 	// the main graphics layer
 	//public static var pen:h2d.Graphics; // TODO: map a key to auto-import packages
 
@@ -13,7 +17,7 @@ class Glob {
 
 // enums are my fav!
 enum LayerName {
-	players;
 	background;
+	players;
 	projectiles;
 }
