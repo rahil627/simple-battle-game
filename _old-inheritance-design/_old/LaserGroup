@@ -1,0 +1,77 @@
+// this structure handles a container of lasers 
+
+import h2d.col.Point;
+
+/* OLD DESIGN
+// i didn't extend the Object class because it just seemed overkill..
+// struct?
+class Laser {
+	// although it's easier to think in points, it's a lot more work :/
+	p1:Point; // Point has a bunch of useful functions on it
+	p2:Point; 
+	
+	public function new (p1:Point, p2:Point) {
+		this.p1 = p1;
+		this.p2 = p2;
+	}
+	
+	public function new (x1, y1, x2, y2) {
+		this.p1.x = x1;
+		this.p1.y = y1;
+		this.p2.x = x2;
+		this.p2.y = y2;		
+	}
+}
+*/
+
+
+/* OLD DESIGN
+// add this to the player class?
+// i'm not sure if children's position is related to parents...
+class LaserGroup extends h2d.Object {
+
+	var g:h2d.Graphics;
+	
+	override function new(?parent Object) {
+		this.super(parent);
+		g = new h2d.Graphics(this);
+	}
+	
+	// call me!
+	public function draw() {
+		if (this.numChildren == 0)
+			return;
+		
+		foreach (laser in this.children) {
+			drawLine(laser.p1.x, laser.p1.y, laser.p2.x, laser.p2.y)
+		}
+	}
+	
+	// don't pass Point, keep it simple
+	private function drawLine(x:Float, y:Float, x2:Float, y2:Float) {
+		//lineStyle( size : Float = 0, color = 0, alpha = 1. ) {
+		g.lineStyle(50, 0xFF00FF, .8); // todo: set random color
+		g.moveTo(x, y);
+		g.lineTo(x2, y2);
+   		g.endFill(); 
+	}
+
+	
+}
+*/
+
+
+
+/*
+		public function updatelaser(power:Float){
+		primative.clear();
+		primative.x = x;
+		primative.y = y;
+		
+		primative.moveTo(0, 0);
+		primative.lineStyle(2, Col.RED, 0.75 * power);
+		primative.lineTo(endx - primative.x + 5, endy - primative.y + 5 - 5);
+		primative.lineTo(5, 5);
+		primative.visible = true;
+	*/
+	
