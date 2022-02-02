@@ -16,7 +16,7 @@ class Glob {
 }
 
 // enums are my fav!
-enum LayerName {
+enum LayerKind {
 	background;
 	players;
 	projectiles;

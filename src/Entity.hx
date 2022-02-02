@@ -20,7 +20,7 @@ class Entity {
 		//this.x = x;
 		//this.y = y;
 		//sprite = new h2d.Anim(getAnim(), 15);
-		//Glob.world.add(spr, hasFlag(Under) ? Game.LAYER_ENT_UNDER : Game.LAYER_ENT);
+		//Glob.world.add(sprite, hasFlag(Under) ? LayerKind.under : LayerKind.players);
 		Glob.entities.push(this);
 	}
 
