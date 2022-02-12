@@ -57,7 +57,7 @@ class Player extends Entity {
 		// ghetto movement code
 		// TODO:these just dont work right...
 		if (Key.isDown(Key.RIGHT)) {
-			x += HP.dt * moveSpeed; // ~1/60 * 10 or 10 pixels per second
+			x += HP.dt * moveSpeed; // ~1/60 * 100 = 100 pixels per second
 			//this.rotation = 0;
 			weaponDirection = 0;
 			// i'm not sure how the coordinate system works...
@@ -66,7 +66,7 @@ class Player extends Entity {
 		if (Key.isDown(Key.DOWN)) {
 			y -= HP.dt * moveSpeed;
 			//this.rotation = Math.PI / 2; 
-			weaponDirection = Math.PI / 2;
+			weaponDirection = Math.PI / 2; // note: learn to use radians, not degrees!
 		}
 		if (Key.isDown(Key.LEFT)) {
 			x -= HP.dt * moveSpeed;
