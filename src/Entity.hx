@@ -1,9 +1,4 @@
-// just an optional bare-bones ds to copy and begin a new project with
-// delete these lines and you're good to go!
-package hp.base; // DELETE ME!!
-import hp.base.*; // DELETE ME!!
-
-import h2d.Scene; // h3d.scene.Scene
+import h2d.Object; // h3d.Object
 
 /*
 // although you can use this.is / std.isOfType, this is 
@@ -53,12 +48,14 @@ class Entity implements EntitySkeleton {
 	//var name:String; // although strange, i've seen HaxePunk and Armory use this for searching, secret optimization magic??
 	//var kind:EntityKind; // maybe useful narrowing down searches; one big container vs keeping multiple containers
 	//var class = Type.getClassName(Type.getClass(this)); // @author MikeTuttle/HaxePunk, i think it uses reflection, which might not be good for cross-platform use
+
+	//var parent:Object;
 	
 	//var sprite:Anim; // Object and it's extensions: Drawable, Graphics, Anim, etc.
 	//var effects:Graphics; // can have as many as you want!
 
 	// override me! and remember to call super()
-	public function new(?scene:Scene) { // good programming says to pass in Scene, also enables to support multiple Scenes, such as split screen
+	public function new(?parent:Object) { // good programming says to pass in Scene, also enables to support multiple Scenes, such as split screen
 		//inf = Data.object.get(kind); // castle db stuff
 		//sprite = new h2d.Anim(getAnim(), 15);
 		
@@ -69,7 +66,8 @@ class Entity implements EntitySkeleton {
 		
 		//AppGlobal.scene.addChild(sprite); // if no Layers add Object to Scene
 		//AppGlobal.world.add(sprite, Layer.monster);  // add Object to Layers
-		AppGlobal.entities.push(this);
+		
+		//AppGlobal.entities.push(this);
 	}
 
 	// override me! and remember to call super.update(dt)
@@ -86,8 +84,7 @@ class Entity implements EntitySkeleton {
 		
 		//sprite.remove(); // all Objects provide this
 		//sprite = null; // not sure if necessarry, but deepnight does it
-		AppGlobal.entities.remove(this);
-		//this = null; // TODO: FAIL, lol
+		//AppGlobal.entities.remove(this);
 		// and off to the garbage collector it goes?
 	}
 	
