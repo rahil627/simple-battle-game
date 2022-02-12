@@ -1,5 +1,12 @@
 import h2d.Layers;
 
+import ra.Haxe;
+import hxd.Math;
+import h2d.Object;
+import hxd.Key;
+import h2d.Interactive;
+import h2d.Graphics;
+
 // just a bare-bones App/Main to copy to begin a new project with
 // the data is all optional, feel free to delete!
 // rename the class, constructor call, 'n filename and you're good to go!
