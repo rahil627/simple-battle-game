@@ -2,5 +2,5 @@
 -cp src
 -lib heaps
 -js app.js
--main Main
+-main MyPunkApp
 -debug
