@@ -4,5 +4,5 @@ import ra.hp.*; // doesn't work recursively...
 // it might be better to make hp a separate package
 // but, it would suck to have 3 repos.. hrmm...
 
-//import Global as GG; // GameGlobal TODO: refactor
+import AppGlobal as GG;
 
