@@ -1,8 +1,3 @@
-// just an optional bare-bones ds to copy and begin a new project with
-// delete these lines and you're good to go!
-package hp.base; // DELETE ME!!
-import hp.base.*; // DELETE ME!!
-
 /*
 // although you can use this.is / std.isOfType, this is 
 // still useful in case you need to search for something but
