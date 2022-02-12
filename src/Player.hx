@@ -18,7 +18,7 @@ class Player extends Entity {
 
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
-		super(parent); // this.super() didn't work...
+		super(parent);
 		this.x = HP.scene.width / 2;
 		this.y = HP.scene.height / 2;
 
