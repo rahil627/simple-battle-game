@@ -1,8 +1,3 @@
-// just an optional bare-bones ds to copy and begin a new project with
-// delete these lines and you're good to go!
-package hp.base; // DELETE ME!!
-import hp.base.*; // DELETE ME!!
-	
 import h2d.Layers;
 import h2d.Scene;  //import h3d.scene.Scene;
 
@@ -10,7 +5,7 @@ import h2d.Scene;  //import h3d.scene.Scene;
 // store references to commonly-used data structures here
 // try to store only references of stuff, no actual objects (except simple types)
 // TODO: singleton vs static
-class AppGlobal {
+class Glob {
 	
 	// only keep references to stuff here
 	public static var scene:Scene;
