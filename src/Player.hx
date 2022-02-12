@@ -4,20 +4,18 @@ import h2d.Bitmap;
 import h2d.Tile;
 import hxd.Key;
 
-class Player extends Object {
+class Player extends Entity {
 
 	// const vars
 
 	// adjustable vars
 	var moveSpeed = 100;
-
 	var weaponDirection = 0.0;
 
 	// simple but not efficient 2d graphics object
 	// should use SpriteBatch or TileGroup
 	var bitmap:h2d.Bitmap;
 
-	// note: classes have new instead of class name / standard constructor
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
 		super(parent); // this.super() didn't work...
