@@ -8,6 +8,7 @@ import h2d.Scene;  //import h3d.scene.Scene;
 class Glob {
 	
 	// only keep references to stuff here
+	//public static var app:MyPunkApp;
 	public static var scene:Scene;
 	
  	public static var world:Layers;
