@@ -1,6 +1,5 @@
 import h2d.Layers;
 
-import ra.Haxe;
 import hxd.Math;
 import h2d.Object;
 import hxd.Key;
@@ -90,8 +89,8 @@ class MyPunkApp extends PunkApp {
 		if (justTouchPressed) {
 			justTouchPressed = false;
 			
-			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, Haxe.randomHex()); // Math.random() * Math.PI * 2
-			new Bomb(HP.scene, Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, Haxe.randomHex(), .7);
+			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
+			new Bomb(HP.scene, Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
 		}
 
 	
