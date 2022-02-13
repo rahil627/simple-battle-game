@@ -22,11 +22,11 @@ class Player extends Entity {
 
 	// call me in main.init()
 	public override function new(?parent:Object, color:Int) {
-		super(parent); // this.super() doesn't work...? try again
+		super(parent);
 
 		// just use a simple bitmap for now..
 		// this somehow draws to the screen automatically
-		sprite = new Bitmap(Tile.fromColor(color), this);
+		sprite = new Bitmap(Tile.fromColor(color), parent);
 		sprite.x = HP.scene.width / 2;
 		sprite.y = HP.scene.height / 2;	
 		sprite.width = 100;

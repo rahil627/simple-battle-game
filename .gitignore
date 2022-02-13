@@ -1,6 +1,8 @@
 /src/heaps
 ld40
 heaps
+tags
+src/tags
 *.n
 *.swf
 *.js

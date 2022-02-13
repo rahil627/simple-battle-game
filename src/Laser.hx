@@ -101,8 +101,8 @@ class Laser extends Entity {
 	// note: structs are useful for returning multiple data fields,
 	// but should avoid passing them in, to keep the function more flexible 'n simple
 	private function getEndPoint(startingX:Float, startingY:Float, angle:Float, distance:Float):Point {	
-		var x2 = x + distance * Math.cos(angle);
-		var y2 = y + distance * Math.sin(angle);
+		var x2 = startingX + distance * Math.cos(angle);
+		var y2 = startingY + distance * Math.sin(angle);
 		return new Point(x2, y2);
 	}
 }

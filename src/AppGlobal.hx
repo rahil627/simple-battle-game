@@ -1,6 +1,5 @@
 import h2d.Layers;
 import h2d.Scene;  //import h3d.scene.Scene;
-import haxe.ds.Array;
 
 // a static global helper class, with a scope specific to this app
 // store references to commonly-used data structures here

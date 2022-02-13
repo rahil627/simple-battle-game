@@ -1,8 +1,3 @@
-// just an optional bare-bones ds to copy and begin a new project with
-// delete these lines and you're good to go!
-package hp.base; // DELETE ME!!
-import hp.base.*; // DELETE ME!!
-
 // the skeletal structure of entities
 // just something to ensure that all entities provide certain functionalites
 // so that when you do iterate through a list of entities, you can call those functions without error

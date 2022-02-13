@@ -5,12 +5,11 @@ import h2d.Object;
 import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
-import haxe.ds.Array;
 
 // just a bare-bones App/Main to copy to begin a new project with
 // the data is all optional, feel free to delete!
 // rename the class, constructor call, 'n filename and you're good to go!
-class MyPunkApp extends PunkApp {
+class MyPunkApp extends hp.PunkApp {
 
 	// note: Layers is only useful for 2d
 	// TODO: Scene extends Layers sooooo.. don't really need this???
