@@ -15,7 +15,7 @@ class MyPunkApp extends PunkApp {
 	// TODO: Scene extends Layers sooooo.. don't really need this???
 	var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
 	var entities:EntityList<Entity>;
-	var players:EntityList<Entity>;
+	var players:Array<Player>;
 	
 	var justTouchPressed = false;
 
@@ -51,7 +51,7 @@ class MyPunkApp extends PunkApp {
 		 // init app stuff
 		 world = new Layers(HP.scene);
 		 entities = new EntityList<Entity>();
-		 players = new EntityList<Player>();
+		 players = new Array<Player>();
 		 //var monster = new Entity(); // just be sure to store the reference to entities somewhere safe!
 		
 		//var numOfPlayers = 2;
