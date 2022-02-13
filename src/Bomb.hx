@@ -3,22 +3,24 @@ import h2d.Object;
 import ra.Haxe;
 
 // classic Bomberman style bomb
-class Bomb extends Graphics {
+class Bomb extends Entity {
+	
+	var sprite:Graphics;
 
 	public override function new(parent:Object, x:Float = 100, y:Float = 100, r:Float = 0, bombColor:Int = 0xFF0000, laserColor:Int = 0xFFFFFF, alpha:Float = 1) {
 		super(parent);
-		this.x = 0; // don't use these! just draw using absolute coordinates
-		this.y = 0;
-		this.rotation = r;
+		//this.x = 0; // don't use these! just draw using absolute coordinates
+		//this.y = 0;
+		sprite.rotation = r;
 
 
 		// init
-		var w = Glob.laserWidth;
+		var w = GG.laserWidth;
 
 		// draw bomb
-		this.beginFill(bombColor, alpha);
-		this.drawRect(x, y, w, w);
-		this.endFill();
+		sprite.beginFill(bombColor, alpha);
+		sprite.drawRect(x, y, w, w);
+		sprite.endFill();
 
 		// draw laser-like explosion
 
@@ -34,19 +36,20 @@ class Bomb extends Graphics {
 		// keeping the object all-together in one place
 		*/
 
-		// draw horizontal line
-		this.lineStyle(w, laserColor, alpha);
-		this.moveTo(0, y);
-		this.lineTo(HP.scene.width, y);
+		// draw horizontal line (without any rotation)
+		sprite.lineStyle(w, laserColor, alpha);
+		sprite.moveTo(0, y);
+		sprite.lineTo(HP.scene.width, y);
 	
 		// draw vertical line
-		this.lineStyle(w, laserColor, alpha);
-		this.moveTo(x, 0);
-		this.lineTo(x, HP.scene.height);
+		sprite.lineStyle(w, laserColor, alpha);
+		sprite.moveTo(x, 0);
+		sprite.lineTo(x, HP.scene.height);
 	}
 
 	// note: optional; not an override
-	public function update() {
+	override function update(dt:Float) {
+		super.update(dt);
 
 	}
 }
