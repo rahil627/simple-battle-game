@@ -5,7 +5,7 @@ import h2d.Scene;  //import h3d.scene.Scene;
 // store references to commonly-used data structures here
 // try to store only references of stuff, no actual objects (except simple types)
 // TODO: singleton vs static
-class Glob {
+class AppGlobal {
 	
 	// only keep references to stuff here
 	//public static var app:MyPunkApp;
@@ -14,7 +14,7 @@ class Glob {
  	public static var world:Layers;
 	
 	public static var entities:EntityList<Entity>;
-	//public static var players:Array<Player>;	
+	public static var players:EntityList<Player>;	
 	//public static var players:Vector<Player>; // or this, if the max amount of players never change
 	//public static var entitiesBackpack:Map<Int, TargetEntities>; // to search commonly-searched stuff by id (key)	
 
