@@ -18,9 +18,10 @@ class Laser extends Entity {
 	var endingPoint:Point;
 	
 	var sprite:Graphics;
+	// playerId:Int; // todo
 
-	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
-		super(parent);
+	public override function new(scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
+		super(scene);
 		sprite.x = 0; // don't use these! just draw using absolute coordinates
 		sprite.y = 0; // can maybe get Bounds center
 		sprite.rotation = angle; // needed to calculate end-point
@@ -85,7 +86,7 @@ class Laser extends Entity {
 			this.remove();
 	}
 
-	// Object already has a draw function... soooooo:
+	// careful: Object already has function named draw
 	// TODO: maybe should keep all draw functions seperate from logic
 	// that way, can just call all the draw functions at once
 	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0xFFFFF, alpha:Float = 1.0) {
