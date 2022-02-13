@@ -8,6 +8,7 @@ class Bomb extends Entity {
 
 	public override function new(parent:Object, x:Float = 100, y:Float = 100, r:Float = 0, bombColor:Int = 0xFF0000, laserColor:Int = 0xFFFFFF, alpha:Float = 1) {
 		super(parent);
+		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
 		//this.x = 0; // don't use these! just draw using absolute coordinates
 		//this.y = 0;
 		sprite.rotation = r;
@@ -45,7 +46,13 @@ class Bomb extends Entity {
 		sprite.moveTo(x, 0);
 		sprite.lineTo(x, HP.scene.height);
 
-		HP.scene.add(sprite, -1);
+		HP.scene.add(sprite, -1); // TODO: set to projectile layer
+	}
+
+
+	public override function dispose() {
+		sprite.remove();
+
 	}
 
 	// note: optional; not an override

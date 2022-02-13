@@ -74,6 +74,12 @@ class MyPunkApp extends PunkApp {
 #end
 
 
+
+// TESTING
+
+			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
+
+
 	}
 	
 	public function reset() {

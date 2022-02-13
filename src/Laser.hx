@@ -11,6 +11,7 @@ import hxd.poly2tri.Point;
 // and just use a struct to store laser data: points, color, etc.
 // but, you know, sprite is good for the purpose to learn the heaps engine
 class Laser extends Entity {
+	
 	var laserColor:Int;
 	var lifeSpan:Float = 5.0;
 	var angle:Float; // leave Object.angle alone!
@@ -20,8 +21,9 @@ class Laser extends Entity {
 	var sprite:Graphics;
 	// playerId:Int; // todo
 
-	public override function new(scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
+	public override function new(?scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super();
+		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
 		sprite.x = 0; // don't use these! just draw using absolute coordinates
 		sprite.y = 0; // can maybe get Bounds center
 		//sprite.rotation = angle; // needed to calculate end-point
@@ -69,6 +71,11 @@ class Laser extends Entity {
 */		
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
+	}
+
+	public override function dispose() {
+		sprite.remove();
+
 	}
 
 	// call me in main
