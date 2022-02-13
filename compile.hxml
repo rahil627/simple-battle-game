@@ -1,7 +1,0 @@
-# display completions
--cp src
--cp src/ra
--lib heaps
--js app.js
--main MyPunkApp
--debug

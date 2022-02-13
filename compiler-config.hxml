@@ -1,0 +1,9 @@
+# display completions
+-cp src
+# because my git submodule adds an extra folder,
+# haxe can't detect the haxe modules/packages by file-path
+-cp src/ra
+-lib heaps
+-js app.js
+-main MyPunkApp
+-debug

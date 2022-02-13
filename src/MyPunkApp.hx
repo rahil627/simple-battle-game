@@ -6,10 +6,12 @@ import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
 
+import hp.PunkApp;
+
 // just a bare-bones App/Main to copy to begin a new project with
 // the data is all optional, feel free to delete!
 // rename the class, constructor call, 'n filename and you're good to go!
-class MyPunkApp extends hp.PunkApp {
+class MyPunkApp extends PunkApp {
 
 	// note: Layers is only useful for 2d
 	// TODO: Scene extends Layers sooooo.. don't really need this???
@@ -69,7 +71,7 @@ class MyPunkApp extends hp.PunkApp {
 	
 	public function reset() {
 		entities.clear();
-		players.clear();
+		players = []; // TODO: add function .clear() to Array?
 		world = new Layers(); // TODO: lol, dunno how to dispose, the array is private, *i think* it's just a tiny array of indicies anyway.., no content
 	}
 	

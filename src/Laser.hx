@@ -9,7 +9,7 @@ import hxd.poly2tri.Point;
 // and Object should have bounds..
 // but it's stupid design, should just draw with a single graphics object
 // and just use a struct to store laser data: points, color, etc.
-// but, you know, this is good for the purpose to learn the heaps engine
+// but, you know, sprite is good for the purpose to learn the heaps engine
 class Laser extends Entity {
 	var laserColor:Int;
 	var lifeSpan:Float = 5.0;
@@ -48,42 +48,31 @@ class Laser extends Entity {
 		b.set(sp.x, sp.y, ep.x, ep.y); 
 		HP.console.log("my bounds " + b.toString());
 
-		this.getBounds(this, b); //TODO: relative to..? this or parent
+		sprite.getBounds(b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
 		
-		this.getBoundsRec(this, b, true); 
-		HP.console.log("getBoundsRec " + b.toString());	
-
-		this.getBoundsRec(this, b, false); 
-		HP.console.log("getBoundsRec2 " + b.toString());
 		
 		// Graphics implementation
-		drawLaser(sp.x, sp.y, ep.x, ep.y, Glob.laserWidth, rc, .8); // TODO: draw here vs in main?
+		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8); // TODO: draw here vs in main?
 
 		HP.console.log("bounds AFTER draw");	
 		
 		b.set(sp.x, sp.y, ep.x, ep.y); 
 		HP.console.log("my bounds " + b.toString());
 
-		this.getBounds(this, b); //TODO: relative to..? this or parent
+		sprite.getBounds(b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
-		
-		this.getBoundsRec(this, b, true); 
-		HP.console.log("getBoundsRec " + b.toString());	
-
-		this.getBoundsRec(this, b, false); 
-		HP.console.log("getBoundsRec2 " + b.toString());
 		
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
 	}
 
 	// call me in main
-	public function update(dt:Float) {
-		//this.alpha -= HP.dt / 10;
+	public override function update(dt:Float) {
+		//sprite.alpha -= HP.dt / 10;
 		lifeSpan -= dt;	
 		if (lifeSpan <= 0)
-			this.remove();
+			sprite.remove();
 	}
 
 	// careful: Object already has function named draw
@@ -92,12 +81,12 @@ class Laser extends Entity {
 	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0xFFFFF, alpha:Float = 1.0) {
 		//G.pen.clear()?
 		sprite.lineStyle(width, color, alpha); 
-		//this.drawLine(this.x, this.y, x2, y2);
+		//sprite.drawLine(this.x, this.y, x2, y2);
 		sprite.moveTo(x, y);
 		sprite.lineTo(x2, y2);
 	}
 
-	// TODO: surely there are some simple stuff like this somewhere..
+	// TODO: surely there are some simple stuff like sprite somewhere..
 	// note: structs are useful for returning multiple data fields,
 	// but should avoid passing them in, to keep the function more flexible 'n simple
 	private function getEndPoint(startingX:Float, startingY:Float, angle:Float, distance:Float):Point {	

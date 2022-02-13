@@ -20,7 +20,7 @@ class AppGlobal {
 
 
 	// constants
-	//public static inline final laserWidth = 50;
+	public static inline final laserWidth = 50;
 
 }
 

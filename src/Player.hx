@@ -43,7 +43,7 @@ class Player extends Entity {
 	// super simple framework! awesome!!
 	
 	// call me in the main.update()
-	public function update() {
+	public override function update(dt:Float) {
 		updateInputs();
 	}
 
