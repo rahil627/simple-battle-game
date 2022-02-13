@@ -1,6 +1,5 @@
 import h2d.Graphics;
 import h2d.Object;
-import ra.Haxe;
 
 // classic Bomberman style bomb
 class Bomb extends Entity {
