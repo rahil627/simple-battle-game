@@ -85,7 +85,7 @@ class MyPunkApp extends PunkApp {
 		
 		// update game stuff
 		for (p in players)
-			p.update();
+			p.update(dt);
 	
 		entities.update(dt);
 		
