@@ -9,8 +9,7 @@ class AppGlobal {
 	
 	// only keep references to stuff here
 	public static var app:MyPunkApp;
-	public static var scene:Scene;
- 	public static var world:Layers;
+ 	//public static var world:Layers;
 	public static var entities:EntityList<Entity>;
 	public static var players:Array<Player>;	
 	//public static var players:Vector<Player>; // or this, if the max amount of players never change
@@ -21,7 +20,7 @@ class AppGlobal {
 	public static inline final laserWidth = 50;
 
 }
-
+/*
 // careful: not to be confused with Layers with an 's'
 enum Layer {
 	background;
@@ -30,3 +29,4 @@ enum Layer {
 	effects;
 	ui;
 }
+*/

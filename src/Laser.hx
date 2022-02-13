@@ -21,11 +21,12 @@ class Laser extends Entity {
 	// playerId:Int; // todo
 
 	public override function new(scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
-		super(scene);
+		super();
 		sprite.x = 0; // don't use these! just draw using absolute coordinates
 		sprite.y = 0; // can maybe get Bounds center
 		sprite.rotation = angle; // needed to calculate end-point
 		laserColor = color;
+
 
 		var sp = startingPoint = new Point(x, y);
 
@@ -53,7 +54,9 @@ class Laser extends Entity {
 		
 		
 		// Graphics implementation
-		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8); // TODO: draw here vs in main?
+		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
+		HP.scene.add(sprite, -1);
+
 
 		HP.console.log("bounds AFTER draw");	
 		

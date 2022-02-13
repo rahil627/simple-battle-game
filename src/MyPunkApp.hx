@@ -17,7 +17,8 @@ class MyPunkApp extends PunkApp {
 	// TODO: Scene extends Layers sooooo.. don't really need this???
 
 	// public, basically game globals
-	public var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
+	public static var app:MyPunkApp; // static singleton
+	//public var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
 	public var entities:EntityList<Entity>;
 	public var players:Array<Player>;
 	
@@ -27,8 +28,7 @@ class MyPunkApp extends PunkApp {
 	// called during application setup after `loadAssets` completed (from docs)
 	override function init() {
 		super.init();
-		//HP.setup(false);
-		hxd.Window.getInstance().title = "debug";
+		HP.setup(false);
 
 		/*
 		 // config screen stuff
@@ -48,17 +48,17 @@ class MyPunkApp extends PunkApp {
 		 hxd.Res.initEmbed(); // use hxd.Res.initEmbed(); for html5/js
 		 #end
 		*/
-		/*
+		
 		// init app globals
-		GG.app = this; // this is a little different from HP.app, which uses the base class
+		GG.app = MyPunkApp.app = this; // this is a little different from HP.app, which uses the base class
 
 		// optional globals
-		GG.world = world;
+		//GG.world = world;
 		GG.entities = entities;
 		GG.players = players;
 
 		 // init app stuff
-		world = new Layers(HP.scene);
+		//world = new Layers(HP.scene);
 		entities = new EntityList<Entity>();
 		players = new Array<Player>(); // TODO: or = [] ?
 		
@@ -72,13 +72,13 @@ class MyPunkApp extends PunkApp {
 		// TODO temp solution until i fix keys
 		HP.screenInputHandler.onPush = touchPressed;
 
-*/
+
 	}
 	
 	public function reset() {
 		entities.clear();
 		players = []; // TODO: add extension function .clear() to Array?
-		world = new Layers(); // TODO: lol, dunno how to dispose, the array is private, *i think* it's just a tiny array of indicies anyway.., no content
+		//world = new Layers(); // TODO: lol, dunno how to dispose, the array is private, *i think* it's just a tiny array of indicies anyway.., no content
 	}
 	
 	// called each frame right before rendering (from docs)
@@ -89,7 +89,7 @@ class MyPunkApp extends PunkApp {
 		// ideally:
 		// do logic stuff based on input *first*
 		// *then* draw
-		/*
+		
 		// update game stuff
 		for (p in players)
 			p.update(dt);
@@ -106,11 +106,13 @@ class MyPunkApp extends PunkApp {
 			justTouchPressed = false;
 			
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
+
 			new Bomb(HP.scene, Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
+
 		}
 
 	
-*/
+
 
 
 		// check collision between player and laser
@@ -150,13 +152,4 @@ class MyPunkApp extends PunkApp {
 		// can store an instance of it... but, for what? for now HP.app is the parent PunkApp class
 	}
 
-	/*
-	static var app:MyPunkApp = null;
-	public static function get():MyPunkApp {
-		if (app == null)
-			throw ("we've got a problem!");
-		
-		return app;
-	}
-	*/
 }

@@ -44,6 +44,9 @@ class Bomb extends Entity {
 		sprite.lineStyle(w, laserColor, alpha);
 		sprite.moveTo(x, 0);
 		sprite.lineTo(x, HP.scene.height);
+
+
+		HP.scene.add(sprite, -1);
 	}
 
 	// note: optional; not an override
