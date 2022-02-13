@@ -5,6 +5,7 @@ import h2d.Object;
 import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
+import haxe.ds.Array;
 
 // just a bare-bones App/Main to copy to begin a new project with
 // the data is all optional, feel free to delete!
