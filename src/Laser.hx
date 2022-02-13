@@ -24,7 +24,7 @@ class Laser extends Entity {
 		super();
 		sprite.x = 0; // don't use these! just draw using absolute coordinates
 		sprite.y = 0; // can maybe get Bounds center
-		sprite.rotation = angle; // needed to calculate end-point
+		//sprite.rotation = angle; // needed to calculate end-point
 		laserColor = color;
 
 
@@ -38,7 +38,8 @@ class Laser extends Entity {
 		// i mean, the engine only draws what's on screen, right..?
 
 		var rc = ra.Haxe.randomHex();
-		
+	
+		/*
 		// TODO: testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
 		// results: it works, maybe just slightly off, and maybe different coordinate system
@@ -51,13 +52,13 @@ class Laser extends Entity {
 
 		sprite.getBounds(b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
-		
+		*/
 		
 		// Graphics implementation
 		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
 		HP.scene.add(sprite, -1);
 
-
+/*
 		HP.console.log("bounds AFTER draw");	
 		
 		b.set(sp.x, sp.y, ep.x, ep.y); 
@@ -65,7 +66,7 @@ class Laser extends Entity {
 
 		sprite.getBounds(b); //TODO: relative to..? this or parent
 		HP.console.log("getBounds " + b.toString());
-		
+*/		
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
 	}
@@ -73,9 +74,9 @@ class Laser extends Entity {
 	// call me in main
 	public override function update(dt:Float) {
 		//sprite.alpha -= HP.dt / 10;
-		lifeSpan -= dt;	
-		if (lifeSpan <= 0)
-			sprite.remove();
+		//lifeSpan -= dt;	
+		//if (lifeSpan <= 0)
+		//	sprite.remove();
 	}
 
 	// careful: Object already has function named draw

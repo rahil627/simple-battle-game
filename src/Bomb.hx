@@ -45,7 +45,6 @@ class Bomb extends Entity {
 		sprite.moveTo(x, 0);
 		sprite.lineTo(x, HP.scene.height);
 
-
 		HP.scene.add(sprite, -1);
 	}
 

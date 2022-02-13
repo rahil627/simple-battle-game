@@ -68,9 +68,10 @@ class MyPunkApp extends PunkApp {
 		players[1] = new Player(HP.scene, 0xFF00FF);
 		
 		
-		
+#if debug	
 		// TODO temp solution until i fix keys
 		HP.screenInputHandler.onPush = touchPressed;
+#end
 
 
 	}
@@ -104,6 +105,9 @@ class MyPunkApp extends PunkApp {
 
 		if (justTouchPressed) {
 			justTouchPressed = false;
+
+		if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
+			trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
 			
 			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
 
@@ -141,6 +145,7 @@ class MyPunkApp extends PunkApp {
 	}
 	
 	function touchPressed(e:hxd.Event) {
+		trace("touch input works!");
 		justTouchPressed = true;
 	}
 
