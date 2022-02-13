@@ -10,19 +10,21 @@ import hxd.poly2tri.Point;
 // but it's stupid design, should just draw with a single graphics object
 // and just use a struct to store laser data: points, color, etc.
 // but, you know, this is good for the purpose to learn the heaps engine
-class Laser extends Graphics {
+class Laser extends Entity {
 	var laserColor:Int;
 	var lifeSpan:Float = 5.0;
 	var angle:Float; // leave Object.angle alone!
 	var startingPoint:Point;
 	var endingPoint:Point;
+	
+	var sprite:Graphics;
 
 	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super(parent);
-		this.x = 0; // don't use these! just draw using absolute coordinates
+		sprite.x = 0; // don't use these! just draw using absolute coordinates
 
-		this.y = 0; // can maybe get Bounds center
-		this.angle = angle; // needed to calculate end-point
+		sprite.x = 0; // can maybe get Bounds center
+		sprite.angle = angle; // needed to calculate end-point
 		laserColor = color;
 
 		var sp = startingPoint = new Point(x, y);
