@@ -15,9 +15,8 @@ class MyPunkApp extends PunkApp {
 	// TODO: Scene extends Layers sooooo.. don't really need this???
 	var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
 	var entities:EntityList<Entity>;
-	//var players:Array<PlayerEntity>; // TODO: static vs global reference
+	var players:EntityList<Entity>;
 	
-	var player:Player;
 	var justTouchPressed = false;
 
 
@@ -47,15 +46,21 @@ class MyPunkApp extends PunkApp {
 		//AppGlobal.app = this; // this is a little different from HP.app, which uses the base class
 		AppGlobal.world = world;
 		AppGlobal.entities = entities;
+		AppGlobal.players = players;
 		
 		 // init app stuff
 		 world = new Layers(HP.scene);
 		 entities = new EntityList<Entity>();
-		 //players = new Array<PlayerEntity>();
+		 players = new EntityList<Player>();
 		 //var monster = new Entity(); // just be sure to store the reference to entities somewhere safe!
 		
-		player = new Player(HP.scene, 0x0000FF);
-
+		//var numOfPlayers = 2;
+		//for (i = 1; i <= numOfPlayers; i++)
+		players.add(new Player(HP.scene, 0x0000FF));
+		players.add(new Player(HP.scene, 0xFF00FF));
+		
+		
+		
 		// TODO temp solution until i fix keys
 		HP.screenInputHandler.onPush = touchPressed;
 
