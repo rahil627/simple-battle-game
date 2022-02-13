@@ -15,9 +15,11 @@ class MyPunkApp extends PunkApp {
 
 	// note: Layers is only useful for 2d
 	// TODO: Scene extends Layers sooooo.. don't really need this???
-	var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
-	var entities:EntityList<Entity>;
-	var players:Array<Player>;
+
+	// public, basically game globals
+	public var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
+	public var entities:EntityList<Entity>;
+	public var players:Array<Player>;
 	
 	var justTouchPressed = false;
 
@@ -25,7 +27,9 @@ class MyPunkApp extends PunkApp {
 	// called during application setup after `loadAssets` completed (from docs)
 	override function init() {
 		super.init();
-		HP.setup(false);
+		//HP.setup(false);
+		hxd.Window.getInstance().title = "debug";
+
 		/*
 		 // config screen stuff
 		 // the hxml file can set some of these too, not sure which has priority tho
@@ -44,17 +48,19 @@ class MyPunkApp extends PunkApp {
 		 hxd.Res.initEmbed(); // use hxd.Res.initEmbed(); for html5/js
 		 #end
 		*/
+		/*
 		// init app globals
-		//AppGlobal.app = this; // this is a little different from HP.app, which uses the base class
-		AppGlobal.world = world;
-		AppGlobal.entities = entities;
-		AppGlobal.players = players;
-		
+		GG.app = this; // this is a little different from HP.app, which uses the base class
+
+		// optional globals
+		GG.world = world;
+		GG.entities = entities;
+		GG.players = players;
+
 		 // init app stuff
-		 world = new Layers(HP.scene);
-		 entities = new EntityList<Entity>();
-		 players = new Array<Player>();
-		 //var monster = new Entity(); // just be sure to store the reference to entities somewhere safe!
+		world = new Layers(HP.scene);
+		entities = new EntityList<Entity>();
+		players = new Array<Player>(); // TODO: or = [] ?
 		
 		//var numOfPlayers = 2;
 		//for (i = 1; i <= numOfPlayers; i++)
@@ -66,12 +72,12 @@ class MyPunkApp extends PunkApp {
 		// TODO temp solution until i fix keys
 		HP.screenInputHandler.onPush = touchPressed;
 
-
+*/
 	}
 	
 	public function reset() {
 		entities.clear();
-		players = []; // TODO: add function .clear() to Array?
+		players = []; // TODO: add extension function .clear() to Array?
 		world = new Layers(); // TODO: lol, dunno how to dispose, the array is private, *i think* it's just a tiny array of indicies anyway.., no content
 	}
 	
@@ -83,7 +89,7 @@ class MyPunkApp extends PunkApp {
 		// ideally:
 		// do logic stuff based on input *first*
 		// *then* draw
-		
+		/*
 		// update game stuff
 		for (p in players)
 			p.update(dt);
@@ -104,7 +110,7 @@ class MyPunkApp extends PunkApp {
 		}
 
 	
-
+*/
 
 
 		// check collision between player and laser
@@ -143,4 +149,14 @@ class MyPunkApp extends PunkApp {
 		new MyPunkApp();
 		// can store an instance of it... but, for what? for now HP.app is the parent PunkApp class
 	}
+
+	/*
+	static var app:MyPunkApp = null;
+	public static function get():MyPunkApp {
+		if (app == null)
+			throw ("we've got a problem!");
+		
+		return app;
+	}
+	*/
 }

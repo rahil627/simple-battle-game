@@ -8,11 +8,9 @@ import h2d.Scene;  //import h3d.scene.Scene;
 class AppGlobal {
 	
 	// only keep references to stuff here
-	//public static var app:MyPunkApp;
+	public static var app:MyPunkApp;
 	public static var scene:Scene;
-	
  	public static var world:Layers;
-	
 	public static var entities:EntityList<Entity>;
 	public static var players:Array<Player>;	
 	//public static var players:Vector<Player>; // or this, if the max amount of players never change
