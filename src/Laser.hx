@@ -5,8 +5,6 @@ import h2d.Graphics;
 import h2d.col.Bounds;
 import hxd.poly2tri.Point;
 
-import ra.Haxe;
-
 // i chose to extend graphics because i want to check for collisions
 // and Object should have bounds..
 // but it's stupid design, should just draw with a single graphics object
@@ -36,7 +34,7 @@ class Laser extends Graphics {
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
-		var rc = Haxe.randomHex();
+		var rc = ra.Haxe.randomHex();
 		
 		// TODO: testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
