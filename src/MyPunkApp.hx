@@ -57,8 +57,8 @@ class MyPunkApp extends PunkApp {
 		
 		//var numOfPlayers = 2;
 		//for (i = 1; i <= numOfPlayers; i++)
-		players.add(new Player(HP.scene, 0x0000FF));
-		players.add(new Player(HP.scene, 0xFF00FF));
+		players[0] = new Player(HP.scene, 0x0000FF);
+		players[1] = new Player(HP.scene, 0xFF00FF);
 		
 		
 		
@@ -70,6 +70,7 @@ class MyPunkApp extends PunkApp {
 	
 	public function reset() {
 		entities.clear();
+		players.clear();
 		world = new Layers(); // TODO: lol, dunno how to dispose, the array is private, *i think* it's just a tiny array of indicies anyway.., no content
 	}
 	
@@ -77,14 +78,16 @@ class MyPunkApp extends PunkApp {
 	// first call is done after the application is set up (so `loadAssets` and `init` are called (from docs)
 	override function update(dt:Float) {
 		super.update(dt);
-		entities.update(dt);
 		
 		// ideally:
 		// do logic stuff based on input *first*
 		// *then* draw
 		
-		// update game stuff	
-		player.update();
+		// update game stuff
+		for (p in players)
+			p.update();
+	
+		entities.update(dt);
 		
 		// TODO: testing input continued
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
