@@ -22,9 +22,8 @@ class Laser extends Entity {
 	public override function new(parent:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super(parent);
 		sprite.x = 0; // don't use these! just draw using absolute coordinates
-
-		sprite.x = 0; // can maybe get Bounds center
-		sprite.angle = angle; // needed to calculate end-point
+		sprite.y = 0; // can maybe get Bounds center
+		sprite.rotation = angle; // needed to calculate end-point
 		laserColor = color;
 
 		var sp = startingPoint = new Point(x, y);
@@ -91,10 +90,10 @@ class Laser extends Entity {
 	// that way, can just call all the draw functions at once
 	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0xFFFFF, alpha:Float = 1.0) {
 		//G.pen.clear()?
-		this.lineStyle(width, color, alpha); 
+		sprite.lineStyle(width, color, alpha); 
 		//this.drawLine(this.x, this.y, x2, y2);
-		this.moveTo(x, y);
-		this.lineTo(x2, y2);
+		sprite.moveTo(x, y);
+		sprite.lineTo(x2, y2);
 	}
 
 	// TODO: surely there are some simple stuff like this somewhere..
