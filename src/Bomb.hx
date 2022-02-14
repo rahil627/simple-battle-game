@@ -46,7 +46,8 @@ class Bomb extends Entity {
 		sprite.moveTo(x, 0);
 		sprite.lineTo(x, HP.scene.height);
 
-		HP.scene.add(sprite, -1); // TODO: set to projectile layer
+		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex());
+		MyPunkApp.inst.entities.add(this);
 	}
 
 
@@ -55,7 +56,6 @@ class Bomb extends Entity {
 
 	}
 
-	// note: optional; not an override
 	override function update(dt:Float) {
 		super.update(dt);
 

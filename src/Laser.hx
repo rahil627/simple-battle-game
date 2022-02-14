@@ -4,6 +4,7 @@ import hxd.Timer;
 import h2d.Graphics;
 import h2d.col.Bounds;
 import hxd.poly2tri.Point;
+//using std.EnumTools;
 
 // i chose to extend graphics because i want to check for collisions
 // and Object should have bounds..
@@ -24,11 +25,13 @@ class Laser extends Entity {
 	public override function new(?scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super();
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
-		sprite.x = 0; // don't use these! just draw using absolute coordinates
-		sprite.y = 0; // can maybe get Bounds center
-		//sprite.rotation = angle; // needed to calculate end-point
+		//sprite.x = 0; // don't use these! just draw using absolute coordinates
+		//sprite.y = 0; // can maybe get Bounds center
+		//sprite.rotation = angle;
 		laserColor = color;
 
+		// lol, it would have been much much easier to draw a straight line, then
+		// set the rotation to the player
 
 		var sp = startingPoint = new Point(x, y);
 
@@ -58,7 +61,10 @@ class Laser extends Entity {
 		
 		// Graphics implementation
 		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
-		HP.scene.add(sprite, -1);
+		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex());
+		MyPunkApp.inst.entities.add(this);
+
+		
 
 /*
 		HP.console.log("bounds AFTER draw");	
@@ -81,9 +87,9 @@ class Laser extends Entity {
 	// call me in main
 	public override function update(dt:Float) {
 		//sprite.alpha -= HP.dt / 10;
-		//lifeSpan -= dt;	
-		//if (lifeSpan <= 0)
-		//	sprite.remove();
+		lifeSpan -= dt;	
+		if (lifeSpan <= 0)
+			sprite.remove();
 	}
 
 	// careful: Object already has function named draw

@@ -5,6 +5,7 @@ import h2d.Object;
 import hxd.Key;
 import h2d.Interactive;
 import h2d.Graphics;
+import h2d.Scene;
 
 import hp.PunkApp;
 
@@ -17,8 +18,8 @@ class MyPunkApp extends PunkApp {
 	// TODO: Scene extends Layers sooooo.. don't really need this???
 
 	// public, basically game globals
-	public static var app:MyPunkApp; // static singleton
-	//public var world:Layers; // just a helper tool to put things in the right place in a 2d scene tree
+	public static var inst:MyPunkApp; // static singleton
+	public var scene:Scene;
 	public var entities:EntityList<Entity>;
 	public var players:Array<Player>;
 	
@@ -50,7 +51,7 @@ class MyPunkApp extends PunkApp {
 		*/
 		
 		// init app globals
-		GG.app = MyPunkApp.app = this; // this is a little different from HP.app, which uses the base class
+		GG.app = MyPunkApp.inst = this; // this is a little different from HP.app, which uses the base class
 
 		// optional globals
 		//GG.world = world;
@@ -58,14 +59,14 @@ class MyPunkApp extends PunkApp {
 		GG.players = players;
 
 		 // init app stuff
-		//world = new Layers(HP.scene);
+		scene = this.s2d;
 		entities = new EntityList<Entity>();
 		players = new Array<Player>(); // TODO: or = [] ?
 		
 		//var numOfPlayers = 2;
 		//for (i = 1; i <= numOfPlayers; i++)
-		players[0] = new Player(HP.scene, 0x0000FF);
-		players[1] = new Player(HP.scene, 0xFF00FF);
+		players[0] = new Player(0x0000FF);
+		players[1] = new Player(0xFF00FF);
 		
 		
 #if debug	

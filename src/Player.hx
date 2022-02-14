@@ -21,12 +21,12 @@ class Player extends Entity {
 	var r:Float;
 
 	// call me in main.init()
-	public override function new(?parent:Object, color:Int) {
-		super(parent);
+	public override function new(color:Int) {
+		super(); 
 
 		// just use a simple bitmap for now..
 		// this somehow draws to the screen automatically
-		sprite = new Bitmap(Tile.fromColor(color), parent);
+		sprite = new Bitmap(Tile.fromColor(color));
 		sprite.x = HP.scene.width / 2;
 		sprite.y = HP.scene.height / 2;	
 		sprite.width = 100;
@@ -37,6 +37,9 @@ class Player extends Entity {
 		x = sprite.x;
 		y = sprite.y;
 		r = sprite.rotation;
+
+		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex()); // just an exanple of singleton vs globals
+		MyPunkApp.inst.players.push(this); // basically: MyApp.inst.field vs GG.field
 	}
 
 	// no init, update, or anything; that's all up to you!
