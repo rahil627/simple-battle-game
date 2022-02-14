@@ -54,7 +54,6 @@ class MyPunkApp extends PunkApp {
 		GG.app = MyPunkApp.inst = this; // this is a little different from HP.app, which uses the base class
 
 		// optional globals
-		//GG.world = world;
 		GG.entities = entities;
 		GG.players = players;
 
