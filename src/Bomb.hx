@@ -21,7 +21,7 @@ class Bomb extends Entity {
 		sprite.beginFill(bombColor, alpha);
 		sprite.drawRect(x, y, w, w);
 		sprite.endFill();
-
+		sprite.tile.center(); // TODO: does this work?
 		// draw laser-like explosion
 
 		/*
@@ -46,13 +46,14 @@ class Bomb extends Entity {
 		sprite.moveTo(x, 0);
 		sprite.lineTo(x, HP.scene.height);
 
-		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex());
-		MyPunkApp.inst.entities.add(this);
+		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
+		GG.entities.add(this);
 	}
 
 
 	public override function dispose() {
 		sprite.remove();
+		GG.entities.remove(this);
 
 	}
 

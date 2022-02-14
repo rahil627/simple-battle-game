@@ -33,6 +33,14 @@ class Laser extends Entity {
 		// lol, it would have been much much easier to draw a straight line, then
 		// set the rotation to the player
 
+		var rc = ra.Haxe.randomHex();
+		drawLaser(x, 0, x, HP.height, GG.laserWidth, rc, .8); // TODO: unsure, depends on the default direction of Object.rotation
+		sprite.rotation = angle;
+
+
+
+
+
 		var sp = startingPoint = new Point(x, y);
 
 		// calculate screen intersection
@@ -42,9 +50,7 @@ class Laser extends Entity {
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
 
-		var rc = ra.Haxe.randomHex();
 	
-		/*
 		// TODO: testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
 		// results: it works, maybe just slightly off, and maybe different coordinate system
@@ -55,32 +61,27 @@ class Laser extends Entity {
 		b.set(sp.x, sp.y, ep.x, ep.y); 
 		HP.console.log("my bounds " + b.toString());
 
-		sprite.getBounds(b); //TODO: relative to..? this or parent
+		sprite.getBounds(b);
 		HP.console.log("getBounds " + b.toString());
-		*/
 		
 		// Graphics implementation
-		drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
+		//drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
 		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex());
 		MyPunkApp.inst.entities.add(this);
 
 		
-
-/*
 		HP.console.log("bounds AFTER draw");	
 		
-		b.set(sp.x, sp.y, ep.x, ep.y); 
-		HP.console.log("my bounds " + b.toString());
+		sprite.getBounds(b); 
+		HP.console.log("getBounds " + b.toString()); // TODO: hmmm, this used to work :(
 
-		sprite.getBounds(b); //TODO: relative to..? this or parent
-		HP.console.log("getBounds " + b.toString());
-*/		
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
 	}
 
 	public override function dispose() {
 		sprite.remove();
+		GG.entities.remove(this);
 
 	}
 
