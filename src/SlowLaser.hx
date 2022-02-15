@@ -5,20 +5,33 @@ import h2d.col.Point;
 class extends SlowLaser {
 	
 	var sprite:Graphics;
-	var sp:Point;
+	var p1:Point;
+	var p2:Point;
 	var width:Float;
+	var length:Float;
+	
+	// constants that requires fine adjustments
+	var lengthScaler:Float = .01; // segment length drawn per update
 
 	public override function new(x:Float = 100, y:Float = 100, r:Float = 0, laserColor:Int = 0xFFFFFF, alpha:Float = 1) {
 		super();
 		
 		// set Objects' transforms
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
-		sprite.x = x;
-		sprite.y = y;
-		sprite.rotation = r; // ? un-rotate, draw, then rotate, for every update/draw call?
+		//sprite.x = x; // just use scene/screen coordinates
+		//sprite.y = y;
+		//sprite.rotation = r; // ? un-rotate, draw, then rotate, for every update/draw call?
+		
+			
+		var sp = startingPoint = new Point(x, y);
+
+		// calculate screen intersection
+		var d = HP.scene.width + HP.scene.height; // TODO: ? lol, off-screen, laziness
+		var ep = endingPoint = getEndPoint(x, y, angle, d);
 
 		// draw sprites
 		width = GG.laserWidth;
+		length = lengthScaler;
 		
 		// draw laser
 		// draw horizontal line
@@ -26,7 +39,7 @@ class extends SlowLaser {
 		sprite.moveTo(0, y);
 		sprite.lineTo(HP.scene.width, y); // draws off-screen, but don't think it matters...
 		
-		explosion.rotation = r;
+		//sprite.rotation = r;
 
 		// add everything to the scene, together, as the same time
 		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
@@ -41,10 +54,32 @@ class extends SlowLaser {
 		GG.entities.remove(this);
 
 	}
+	
+	// try not to create any vars in update
+	var rc:Int;
 
-	override function update(dt:Float) {
+	override function update(dt:Float) { // TODO: is update called on the first frame after init or second frame?
 		super.update(dt);
+		
+		// two ways: either
+		// clear the graphics, and re-draw a longer line, or
+		// draw the next segment
+		
+		// TODO: need a tween function?
+		// TODO: should play with a path lib too
+		
+		// clear and re-draw way
+		//sprite.rotation = 0;
+		rc = ra.Haxe.randomHex();
+		sprite.clear();
+		drawLaser(p1.x, p1.y, p2.x * length, p2.y * length, GG.laserWidth, rc, .8);
+		length += lengthScaler * dt;
+		//sprite.rotation = angle;
+		
+		// draw segment way
+		// ...
 
+		// if it reaches off screen, ... do something? hmmm, haven't thought about it yet...
 	}
 	
 	// just copy-pasta these two functions from Laser for now...
