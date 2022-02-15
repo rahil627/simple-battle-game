@@ -105,7 +105,16 @@ class Entity implements EntitySkeleton {
 	// This method checks if a downcast is possible. That is, if the runtime type of value is assignable to the type specified by c, value is returned. Otherwise null is returned.
 	// This method is not guaranteed to work with core types such as String, Array and Date.
 	// If value is null, the result is null. If c is null, the result is unspecified.
-	public function as<T:Entity>(c:Class<T>):T return Std.downcast(this, c); // ?? not sure when to use, but seems handy!
+	// TODO: can rename to cast? it seems to be a keyword..
+	public function as<T:Entity>(c:Class<T>):T { // ?? not sure when to use, but seems handy!
+		
+		var e = Std.downcast(this, c);
+		
+		if (!e)
+			throw ("entity downcast failed");
+		
+		return e;
+	}
 	
 	
 	
