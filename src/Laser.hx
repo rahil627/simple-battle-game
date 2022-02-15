@@ -3,7 +3,7 @@ import hxd.Math;
 import hxd.Timer;
 import h2d.Graphics;
 import h2d.col.Bounds;
-import hxd.poly2tri.Point;
+import hxd.cold.Point;
 
 // i chose to extend graphics because i want to check for collisions
 // and Object should have bounds..
@@ -101,7 +101,7 @@ class Laser extends Entity {
 	// TODO: maybe should keep all draw functions seperate from logic
 	// that way, can just call all the draw functions at once
 	public function drawLaser(x:Float, y:Float, x2:Float, y2:Float, width:Int = 10, ?color:Int = 0xFFFFF, alpha:Float = 1.0) {
-		//G.pen.clear()?
+		//sprite.clear()?
 		sprite.lineStyle(width, color, alpha); 
 		//sprite.drawLine(this.x, this.y, x2, y2);
 		sprite.moveTo(x, y);
