@@ -24,9 +24,9 @@ class Laser extends Entity {
 	public override function new(x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super();
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
-		//sprite.x = 0; // don't use these! just draw using absolute coordinates
-		//sprite.y = 0; // can maybe get Bounds center
-		//sprite.rotation = angle;
+		sprite.x = x;
+		sprite.y = y;
+		//sprite.rotation = angle; // TODO: rotate after drawing?
 		laserColor = color;
 
 		// lol, it would have been much much easier to draw a straight line, then
@@ -41,7 +41,7 @@ class Laser extends Entity {
 
 
 		
-		/*
+		
 		var sp = startingPoint = new Point(x, y);
 
 		// calculate screen intersection
@@ -50,7 +50,7 @@ class Laser extends Entity {
 
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
-		*/
+		
 
 	
 		// TODO: testing bounds, compare with the bounds i calculate
