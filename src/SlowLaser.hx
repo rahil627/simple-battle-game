@@ -32,14 +32,6 @@ class extends SlowLaser {
 		// draw sprites
 		width = GG.laserWidth;
 		length = lengthScaler;
-		
-		// draw laser
-		// draw horizontal line
-		sprite.lineStyle(w, laserColor, alpha);
-		sprite.moveTo(0, y);
-		sprite.lineTo(HP.scene.width, y); // draws off-screen, but don't think it matters...
-		
-		//sprite.rotation = r;
 
 		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
 		GG.entities.add(this);
