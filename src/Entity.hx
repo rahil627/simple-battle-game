@@ -55,7 +55,7 @@ class Entity implements EntitySkeleton {
 	//var effects:Graphics; // can have as many as you want!
 
 	// override me! and remember to call super()
-	public function new(?parent:Object) { // good programming says to pass in Scene, also enables to support multiple Scenes, such as split screen
+	public function new() { // TODO: good programming says to pass in Scene, might be a problem when you have multiple scenes (pause/menu screen, etc.)
 		//inf = Data.object.get(kind); // castle db stuff
 		//sprite = new h2d.Anim(getAnim(), 15);
 		
@@ -97,7 +97,8 @@ class Entity implements EntitySkeleton {
 	// from docs of Std.isOfType():
 	// Tells if a value v (this) is of the type t. Returns false if v or t are null.
 	// If t is a class or interface with @:generic meta, the result is false.
-	public function is<T:Entity>(t:Class<T>):Bool return Std.isOfType(this, t); // like entity kind, useful to narrow down searches
+	public function is<T:Entity>(t:Class<T>):Bool
+		return Std.isOfType(this, t); // like entity kind, useful to narrow down searches
 	
 	// from docs of Std.downcast():
 	// Checks if object value (this) is an instance of class or interface c.
