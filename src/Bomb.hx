@@ -12,8 +12,8 @@ class Bomb extends Entity {
 		
 		// set Objects' transforms
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
-		this.x = x;
-		this.y = y;
+		sprite.x = x;
+		sprite.y = y;
 		//sprite.rotation = r; // rotate after drawing? // TODO: test this
 		
 		explosion = new Graphics();
@@ -21,7 +21,7 @@ class Bomb extends Entity {
 		explosion.y = y;
 		//explosion.rotation = r; // rotate after drawing
 
-		// set stuff
+		// draw sprites
 		var w = GG.laserWidth;
 
 		// draw bomb
@@ -45,7 +45,11 @@ class Bomb extends Entity {
 		
 		explosion.rotation = r;
 
+		// add everything to the scene, together, as the same time
 		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
+		GG.scene.add(explosion, GG.Layer.projectiles.getIndex());
+		
+		// keep a reference to this entity
 		GG.entities.add(this);
 		
 		/*
@@ -60,6 +64,7 @@ class Bomb extends Entity {
 
 	public override function dispose() {
 		sprite.remove();
+		explosion.remove();
 		GG.entities.remove(this);
 
 	}
