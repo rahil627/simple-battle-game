@@ -46,6 +46,8 @@ class extends SlowLaser {
 		super.update(dt);
 
 	}
+	
+	// just copy-pasta these two functions from Laser for now...
 
 	// careful: Object already has function named draw
 	// TODO: maybe should keep all draw functions seperate from logic
