@@ -5,10 +5,10 @@ import h2d.col.Point;
 class extends SlowLaser {
 	
 	var sprite:Graphics;
-	var p1:Point;
-	var p2:Point;
+	var p1:Point; // starting point
+	var p2:Point; // ending point
 	var width:Float;
-	var length:Float;
+	var length:Float; // current length of laser
 	
 	// constants that requires fine adjustments
 	var lengthScaler:Float = .01; // segment length drawn per update
@@ -23,11 +23,11 @@ class extends SlowLaser {
 		//sprite.rotation = r; // ? un-rotate, draw, then rotate, for every update/draw call?
 		
 			
-		var sp = startingPoint = new Point(x, y);
+		p1 = new Point(x, y);
 
 		// calculate screen intersection
 		var d = HP.scene.width + HP.scene.height; // TODO: ? lol, off-screen, laziness
-		var ep = endingPoint = getEndPoint(x, y, angle, d);
+		p2 = getEndPoint(x, y, angle, d);
 
 		// draw sprites
 		width = GG.laserWidth;
