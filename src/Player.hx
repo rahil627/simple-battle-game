@@ -97,12 +97,9 @@ class Player extends Entity {
 		// note: add laser to the scene, not the player!
 		// that way, the coordinates are simple
 		// also, can just add player.id to the laser
-		new Laser(HP.scene, x, y, r); // TODO: maybe need to do localToGlobal
-		// or HP.scene.addChild())?
-		// HP.scene.addChild(new Laser(this.x, this.y, this.rotation));
+		new Laser(x, y, r, 0xFF0000); // TODO: maybe need to do localToGlobal
 		// maybe later on can switch to holding the button down
 		// makes it latch on to the player
 		// until the player lets go of the button
-		// this.addChild(l);
 	}
 }

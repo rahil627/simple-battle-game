@@ -111,7 +111,7 @@ class Entity implements EntitySkeleton {
 		
 		var e = Std.downcast(this, c);
 		
-		if (!e)
+		if (e == null)
 			throw ("entity downcast failed");
 		
 		return e;

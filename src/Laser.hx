@@ -3,7 +3,7 @@ import hxd.Math;
 import hxd.Timer;
 import h2d.Graphics;
 import h2d.col.Bounds;
-import hxd.cold.Point;
+import h2d.col.Point;
 
 // i chose to extend graphics because i want to check for collisions
 // and Object should have bounds..

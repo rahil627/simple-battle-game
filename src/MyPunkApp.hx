@@ -77,7 +77,7 @@ class MyPunkApp extends PunkApp {
 
 // TESTING
 
-			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
+			new Laser(Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
 
 
 	}
@@ -115,9 +115,9 @@ class MyPunkApp extends PunkApp {
 		if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
 			trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
 			
-			new Laser(HP.scene, Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
+			new Laser(Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
 
-			new Bomb(HP.scene, Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
+			new Bomb(Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
 
 		}
 
