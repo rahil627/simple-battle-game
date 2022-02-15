@@ -4,13 +4,12 @@ import hxd.Timer;
 import h2d.Graphics;
 import h2d.col.Bounds;
 import hxd.poly2tri.Point;
-//using std.EnumTools;
 
 // i chose to extend graphics because i want to check for collisions
 // and Object should have bounds..
 // but it's stupid design, should just draw with a single graphics object
 // and just use a struct to store laser data: points, color, etc.
-// but, you know, sprite is good for the purpose to learn the heaps engine
+// but, you know, using Object is good for the purpose to learn the heaps engine
 class Laser extends Entity {
 	
 	var laserColor:Int;
@@ -22,7 +21,7 @@ class Laser extends Entity {
 	var sprite:Graphics;
 	// playerId:Int; // todo
 
-	public override function new(?scene:Object, x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
+	public override function new(x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
 		super();
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
 		//sprite.x = 0; // don't use these! just draw using absolute coordinates
@@ -41,6 +40,8 @@ class Laser extends Entity {
 
 
 
+		
+		/*
 		var sp = startingPoint = new Point(x, y);
 
 		// calculate screen intersection
@@ -49,16 +50,17 @@ class Laser extends Entity {
 
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
+		*/
 
 	
 		// TODO: testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
 		// results: it works, maybe just slightly off, and maybe different coordinate system
-		var b = new Bounds(); // no constructor!
+		var b = new Bounds(); // no constructor!.. strange
 
-		HP.console.log("bounds BEFORE draw");	
-
-		b.set(sp.x, sp.y, ep.x, ep.y); 
+		HP.console.log("bounds BEFORE draw");
+		
+		b.set(sp.x, sp.y, ep.x, ep.y);
 		HP.console.log("my bounds " + b.toString());
 
 		sprite.getBounds(b);
@@ -66,14 +68,16 @@ class Laser extends Entity {
 		
 		// Graphics implementation
 		//drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
-		MyPunkApp.inst.scene.add(sprite, GG.Layer.projectiles.getIndex());
-		MyPunkApp.inst.entities.add(this);
 
-		
 		HP.console.log("bounds AFTER draw");	
 		
 		sprite.getBounds(b); 
 		HP.console.log("getBounds " + b.toString()); // TODO: hmmm, this used to work :(
+		
+		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
+		GG.entities.add(this);
+
+		
 
 		// bitmap implementation
 		// bitmap = new Bitmap(Tile.fromColor(color));
@@ -87,7 +91,7 @@ class Laser extends Entity {
 
 	// call me in main
 	public override function update(dt:Float) {
-		//sprite.alpha -= HP.dt / 10;
+		//sprite.alpha -= HP.dt / 10; // TODO: need a simple tween library
 		lifeSpan -= dt;	
 		if (lifeSpan <= 0)
 			sprite.remove();
