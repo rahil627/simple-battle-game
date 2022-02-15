@@ -2,7 +2,7 @@ import h2d.Graphics;
 import h2d.Object;
 import h2d.col.Point;
 
-class extends SlowLaser {
+class SlowLaser extends Entity {
 	
 	var sprite:Graphics;
 	var p1:Point; // starting point
@@ -27,7 +27,7 @@ class extends SlowLaser {
 
 		// calculate screen intersection
 		var d = HP.scene.width + HP.scene.height; // TODO: ? lol, off-screen, laziness
-		p2 = getEndPoint(x, y, angle, d);
+		p2 = getEndPoint(x, y, r, d);
 
 		// draw sprites
 		width = GG.laserWidth;

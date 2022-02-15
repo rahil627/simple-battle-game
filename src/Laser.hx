@@ -21,20 +21,20 @@ class Laser extends Entity {
 	var sprite:Graphics;
 	// playerId:Int; // todo
 
-	public override function new(x:Float, y:Float, angle:Float, color:Int = 0xFFFFFF) {
+	public override function new(x:Float, y:Float, r:Float, color:Int = 0xFFFFFF) {
 		super();
 		sprite = new Graphics(); // don't use constructor parameter parent, use scene.add for Layers
 		sprite.x = x;
 		sprite.y = y;
-		//sprite.rotation = angle; // TODO: rotate after drawing?
+		//sprite.rotation = r; // TODO: rotate after drawing?
 		laserColor = color;
 
 		// lol, it would have been much much easier to draw a straight line, then
 		// set the rotation to the player
 
 		var rc = ra.Haxe.randomHex();
-		drawLaser(x, 0, x, HP.height, GG.laserWidth, rc, .8); // TODO: unsure, depends on the default direction of Object.rotation
-		sprite.rotation = angle;
+		drawLaser(0, 0, 0, HP.width, GG.laserWidth, rc, .8); // TODO: unsure, depends on the default direction of Object.rotation
+		sprite.rotation = r;
 
 
 
@@ -46,33 +46,35 @@ class Laser extends Entity {
 
 		// calculate screen intersection
 		var d = HP.scene.width + HP.scene.height; // TODO: ? lol
-		var ep = endingPoint = getEndPoint(x, y, angle, d);
+		var ep = endingPoint = getEndPoint(x, y, r, d);
 
 		// TODO:  does it matter if the point is off the screen?
 		// i mean, the engine only draws what's on screen, right..?
-		
-
 	
-		// TODO: testing bounds, compare with the bounds i calculate
+		// TODO: temp debugging
+		var b = new Bounds(); // no constructor!.. strange
+		b.set(sp.x, sp.y, ep.x, ep.y);
+		HP.console.log("bounds " + b.toString());
+
+
+		/*
+		// testing bounds, compare with the bounds i calculate
 		// i think they are used to calculate the bounds of all children, heavy stuff
 		// results: it works, maybe just slightly off, and maybe different coordinate system
 		var b = new Bounds(); // no constructor!.. strange
 
-		HP.console.log("bounds BEFORE draw");
+		HP.console.log("bounds AFTER draw");
 		
 		b.set(sp.x, sp.y, ep.x, ep.y);
 		HP.console.log("my bounds " + b.toString());
 
 		sprite.getBounds(b);
 		HP.console.log("getBounds " + b.toString());
-		
-		// Graphics implementation
-		//drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
+		*/
 
-		HP.console.log("bounds AFTER draw");	
+		// using scene coordinates
+		//drawLaser(sp.x, sp.y, ep.x, ep.y, GG.laserWidth, rc, .8);
 		
-		sprite.getBounds(b); 
-		HP.console.log("getBounds " + b.toString()); // TODO: hmmm, this used to work :(
 		
 		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
 		GG.entities.add(this);

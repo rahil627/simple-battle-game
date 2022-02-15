@@ -50,13 +50,14 @@ class MyPunkApp extends PunkApp {
 		 #end
 		*/
 		
-		// init app globals
+		// init app globals // TODO: make an init function in GG
 		GG.app = MyPunkApp.inst = this; // this is a little different from HP.app, which uses the base class
 
 		// optional globals
+		GG.scene = this.s2d;
 		GG.entities = entities;
 		GG.players = players;
-
+		
 		 // init app stuff
 		scene = this.s2d;
 		entities = new EntityList<Entity>();
@@ -70,15 +71,10 @@ class MyPunkApp extends PunkApp {
 		
 #if debug	
 		// TODO temp solution until i fix keys
-		HP.screenInputHandler.onPush = touchPressed;
+		//HP.screenInputHandler.onPush = touchPressed;
 #end
 
-
-
-// TESTING
-
-			new Laser(Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
-
+		HP.scene.startCapture(touchPressed); // stopInput callback parameter,  also has a strange touchid third parameter...
 
 	}
 	
@@ -112,12 +108,14 @@ class MyPunkApp extends PunkApp {
 		if (justTouchPressed) {
 			justTouchPressed = false;
 
-		if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
-			trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
+			// Scene.mousX/Y do not work for touches!! returns 0/-40
+			//if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
+			//	trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
+			//	trace("mouseX/Y: " + HP.window.mouseX + " " + HP.window.mouseY);
 			
-			new Laser(Math.random() * HP.scene.width, Math.random() * HP.scene.height, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
-
+			new Laser(touchX, touchY, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
 			new Bomb(Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
+			new SlowLaser(Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, Math.PI/2, ra.Haxe.randomHex(), .7);
 
 		}
 
@@ -149,10 +147,25 @@ class MyPunkApp extends PunkApp {
 		
 		
 	}
-	
+
+
+	var touchX:Float = 0;
+	var touchY:Float = 0;
 	function touchPressed(e:hxd.Event) {
+		/*
+		switch (e) {
+			case EPush:
+
+			case EMove:
+			case EReleased:
+
+		}
+		*/
+
 		trace("touch input works!");
 		justTouchPressed = true;
+		touchX = e.relX;
+		touchY = e.relY;
 	}
 
 	
