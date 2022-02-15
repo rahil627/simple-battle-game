@@ -41,10 +41,7 @@ class extends SlowLaser {
 		
 		//sprite.rotation = r;
 
-		// add everything to the scene, together, as the same time
 		GG.scene.add(sprite, GG.Layer.projectiles.getIndex());
-		
-		// keep a reference to this entity
 		GG.entities.add(this);
 	}
 
