@@ -5,7 +5,7 @@ import haxe.ds.List;
 //@:generic TODO: don't i need this?
 class EntityList<T:Entity> {
 	
-	// maybe can use inheritance (extends List) or create a new generic (entities:ListEx<Entity>) somehow..?
+	// maybe can use inheritance (extends List) or create a generic (<T>) somehow..?
 	// see https://haxe.org/manual/type-system-generic.html
 	
 	// use HaxePunk's EntityList as a model
