@@ -71,10 +71,12 @@ class MyPunkApp extends PunkApp {
 		
 #if debug	
 		// TODO temp solution until i fix keys
-		//HP.screenInputHandler.onPush = touchPressed;
+		HP.screenInputHandler.onPush = touchPressed;
 #end
 
-		HP.scene.startCapture(touchPressed); // stopInput callback parameter,  also has a strange touchid third parameter...
+		// not sure of the difference, but ok...
+		// need to finish the callback up to work on EPush
+		//HP.scene.startCapture(touchPressed); // stopInput callback parameter,  also has a strange touchid third parameter...
 
 	}
 	
@@ -97,8 +99,21 @@ class MyPunkApp extends PunkApp {
 		for (p in players)
 			p.update(dt);
 	
-		entities.update(dt);
-		
+		//entities.update(dt); // TODO why wouldn't this work?
+		// it reaches EntityList update, but, i don't think it can call update
+		// because it's using generics, i think, so it has to be casted
+		// so, i might have to make EntityList  a non-generic class (don't use T, use Entity)
+		// but wouldn't that ruin teh point?..
+
+		/*
+		// how the eff do none of these work??
+		for (e in entities.entities) {
+			(cast e).update(dt);
+			(cast (e, Entity)).update(dt);
+			(e.as(Entity)).update(dt); // also without parenthesis doesn't work neither..
+		}
+		*/
+
 		// TODO: testing input continued
 		if (Key.isPressed(Key.K) || Key.isDown(Key.J) || Key.isDown('H'.code)) {
 			HP.console.log("yay, the buttons finally work!!");
@@ -109,13 +124,15 @@ class MyPunkApp extends PunkApp {
 			justTouchPressed = false;
 
 			// Scene.mousX/Y do not work for touches!! returns 0/-40
-			//if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
-			//	trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
+			// TODO: testing scene.startCapture
+			if(HP.scene.mouseX != 0.0 && HP.scene.mouseY != 0.0)
+				trace("mouseX/Y: " + HP.scene.mouseX + " " + HP.scene.mouseY);
 			//	trace("mouseX/Y: " + HP.window.mouseX + " " + HP.window.mouseY);
-			
-			new Laser(touchX, touchY, 0, ra.Haxe.randomHex()); // Math.random() * Math.PI * 2
-			new Bomb(Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, 0, 0xFF0000, ra.Haxe.randomHex(), .7);
-			new SlowLaser(Math.random() * HP.sceneWidth, Math.random() * HP.sceneHeight, Math.PI/2, ra.Haxe.randomHex(), .7);
+		
+			// MAIN TESTING AREA
+			new Laser(touchX, touchY, Math.random() * Math.PI * 2, ra.Haxe.randomHex());
+			//new Bomb(touchX, touchY, Math.random() * Math.PI * 2, 0xFF0000, ra.Haxe.randomHex(), .7);
+			//new SlowLaser(touchX, touchY, Math.random() * Math.PI * 2, ra.Haxe.randomHex(), .7);
 
 		}
 

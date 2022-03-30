@@ -93,6 +93,7 @@ class Laser extends Entity {
 
 	// call me in main
 	public override function update(dt:Float) {
+		trace("testing update in laser"); // TODO: UPDATE NOT BEING CALLED!!
 		//sprite.alpha -= HP.dt / 10; // TODO: need a simple tween library
 		lifeSpan -= dt;	
 		if (lifeSpan <= 0)
