@@ -11,9 +11,10 @@ class SlowLaser extends Entity {
 	var length:Float; // current length of laser
 	
 	// constants that requires fine adjustments
-	var lengthScaler:Float = .01; // segment length drawn per update
+	var lengthScaler:Float = 10; // segment length drawn per update
 
 	public override function new(x:Float = 100, y:Float = 100, r:Float = 0, laserColor:Int = 0xFFFFFF, alpha:Float = 1) {
+		trace("new SlowLaser");
 		super();
 		
 		// set Objects' transforms
@@ -26,7 +27,7 @@ class SlowLaser extends Entity {
 		p1 = new Point(x, y);
 
 		// calculate screen intersection
-		var d = HP.scene.width + HP.scene.height; // TODO: ? lol, off-screen, laziness
+		var d = HP.width + HP.height; // TODO: ? lol, off-screen, laziness
 		p2 = getEndPoint(x, y, r, d);
 
 		// draw sprites
@@ -48,6 +49,7 @@ class SlowLaser extends Entity {
 	var rc:Int;
 
 	override function update(dt:Float) { // TODO: is update called on the first frame after init or second frame?
+		trace("update slow laser"); // TODO: not calling update?
 		super.update(dt);
 		
 		// two ways: either
@@ -60,8 +62,9 @@ class SlowLaser extends Entity {
 		// clear and re-draw way
 		//sprite.rotation = 0;
 		rc = ra.Haxe.randomHex();
-		sprite.clear();
+		//sprite.clear();
 		drawLaser(p1.x, p1.y, p2.x * length, p2.y * length, GG.laserWidth, rc, .8);
+		trace("lengt " + length + " " + lengthScaler + " " + dt);
 		length += lengthScaler * dt;
 		//sprite.rotation = angle;
 		
