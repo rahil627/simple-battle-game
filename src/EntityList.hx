@@ -91,8 +91,8 @@ class EntityList<T:Entity> {
 	// other native array/list ds functions
 	
 	// List functions (not comprehensive)
-	public var first(get, never):Null<T>; public function get_first():Null<T> return entities.first();
-	public var last(get, never):Null<T>; public function get_last():Null<T> return entities.last();	
+	public var first(get, never):Null<T>; function get_first():Null<T> return entities.first();
+	public var last(get, never):Null<T>; function get_last():Null<T> return entities.last();	
 	
 	//filter(f:T ‑> Bool):List<T>
 	//map<X>(f:T ‑> X):List<X>
@@ -135,7 +135,7 @@ class EntityList<T:Entity> {
 	
 	public function update(dt:Float) {
 		for (e in entities)
-			e.update(dt);
+			e.update(dt); // TODO: this is not working..? need to cast or something..?
 	}
 	
 	/*
